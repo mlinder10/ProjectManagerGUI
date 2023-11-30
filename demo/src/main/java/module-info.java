@@ -4,8 +4,8 @@ module com.example {
     requires json.simple;
 
     opens com.example to javafx.fxml;
-    exports controllers;
-    exports models;
-    exports utils;
+    opens controllers to javafx.fxml;
+    opens models to javafx.fxml;
+    opens utils to javafx.fxml;
     exports com.example;
 }

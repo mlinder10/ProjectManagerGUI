@@ -2,6 +2,8 @@ package models;
 
 import java.util.ArrayList;
 
+import utils.DataWriter;
+
 /**
  * Section class groups task together
  */
@@ -39,6 +41,7 @@ public class Section {
      */
     public Task createTask(Task task) {
         this.tasks.add(task);
+        DataWriter.saveProjects(ProjectList.getProjectList().projects);
         return task;
     }
 
@@ -50,6 +53,7 @@ public class Section {
      */
     public boolean deleteTask(Task task) {
         this.tasks.remove(task);
+        DataWriter.saveProjects(ProjectList.getProjectList().projects);
         return true;
     }
 }

@@ -33,9 +33,9 @@
                         <Font name="Comic Sans MS" size="14.0" />
                      </font>
                   </Label>
-                  <TextField id="usernameField" prefHeight="26.0" prefWidth="189.0" promptText="Username" style="-fx-max-width: 150;" />
-                  <PasswordField id="passwordField" promptText="Password" style="-fx-max-width: 150;" />
-                  <Button id="loginBtn" mnemonicParsing="false" style="-fx-max-width: 150; -fx-background-color: #F2C53D;" text="Login" textFill="WHITE" />
+                  <TextField fx:id="usernameField" prefHeight="26.0" prefWidth="189.0" promptText="Username" style="-fx-max-width: 150;" />
+                  <PasswordField fx:id="passwordField" promptText="Password" style="-fx-max-width: 150;" />
+                  <Button fx:id="loginBtn" mnemonicParsing="false" style="-fx-max-width: 150; -fx-background-color: #F2C53D;" text="Login" textFill="WHITE" />
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
                      <children>
                         <Label text="Don't have an account?" textFill="WHITE">
@@ -43,7 +43,7 @@
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Button id="registerBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Register" textFill="#f2c53d">
+                        <Button fx:id="registerBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Register" textFill="#f2c53d">
                            <font>
                               <Font size="10.0" />
                            </font>

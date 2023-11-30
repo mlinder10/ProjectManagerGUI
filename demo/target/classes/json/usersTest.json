@@ -10,5 +10,11 @@
     "id": "f1e3e520-b319-4b91-aa06-9434f41b3ef6",
     "email": "jeffg@outlook.com",
     "username": "jeffgoldblum"
+  },
+  {
+    "password": "password",
+    "id": "47334fe9-6f09-4e69-acab-dc0cc3be92c0",
+    "email": "matt@email.com",
+    "username": "matt"
   }
 ]

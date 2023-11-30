@@ -12,6 +12,7 @@ import models.Task;
 import models.User;
 
 import java.util.ArrayList;
+
 /**
  * @author Alexis Hill and Matt Linder
  */
@@ -34,26 +35,26 @@ public class DataWriter extends DataConstants {
             output += "\n\n";
         }
 
-        FileWriter fileWriter = new FileWriter(new File("./json/output.txt"));
+        FileWriter fileWriter = new FileWriter(new File(BASE_URI + "output.txt"));
         fileWriter.write(output);
         fileWriter.close();
     }
 
     /**
      * 
-     * @param users the method saveUsers takes in an arraylist of users 
-     * and converts each user in the arraylist into a json object and 
-     * then stores the object into the json array
+     * @param users the method saveUsers takes in an arraylist of users
+     *              and converts each user in the arraylist into a json object and
+     *              then stores the object into the json array
      * @return true if the file that the json array will be written into
-     * is available and false if there is no file to write into or nothing 
-     * being written into the file
+     *         is available and false if there is no file to write into or nothing
+     *         being written into the file
      */
     public static boolean saveUsers(ArrayList<User> users) {
         JSONArray jsonUsers = new JSONArray();
         for (User user : users) {
             jsonUsers.add(getUserJson(user));
         }
-        try (FileWriter file = new FileWriter("../json/usersTest.json")) {
+        try (FileWriter file = new FileWriter(BASE_URI + "usersTest.json")) {
             file.write(jsonUsers.toJSONString());
             file.flush();
             return true;
@@ -66,18 +67,19 @@ public class DataWriter extends DataConstants {
     /**
      * 
      * @param projects the method saveProjects takes in an arraylist of
-     *  projects and converts each project in the arraylist into a json
-     *  object and then stores the object into the json array
+     *                 projects and converts each project in the arraylist into a
+     *                 json
+     *                 object and then stores the object into the json array
      * @return true if the file that the json array will be written into
-     * is available and false if there is no file to write into or nothing 
-     * being written into the file
+     *         is available and false if there is no file to write into or nothing
+     *         being written into the file
      */
     public static boolean saveProjects(ArrayList<Project> projects) {
         JSONArray jsonProject = new JSONArray();
         for (Project project : projects) {
             jsonProject.add(getProjectJson(project));
         }
-        try (FileWriter file = new FileWriter("../json/projectsTest.json")) {
+        try (FileWriter file = new FileWriter(BASE_URI + "projectsTest.json")) {
             file.write(jsonProject.toJSONString());
             file.flush();
             return true;
@@ -90,8 +92,9 @@ public class DataWriter extends DataConstants {
     /**
      * 
      * @param user the method getUserJson takes in a user object and takes in
-     * the arguments from the user and makes them into json attributes in an 
-     * effort to convert the object into a json object
+     *             the arguments from the user and makes them into json attributes
+     *             in an
+     *             effort to convert the object into a json object
      * @return the json object is returned after the user data is obtained
      */
     public static JSONObject getUserJson(User user) {
@@ -105,9 +108,11 @@ public class DataWriter extends DataConstants {
 
     /**
      * 
-     * @param project the method getProjectJson takes in a project object and extracts
-     * the arguments from the project and makes them into json attributes in an 
-     * effort to convert the object into a json object
+     * @param project the method getProjectJson takes in a project object and
+     *                extracts
+     *                the arguments from the project and makes them into json
+     *                attributes in an
+     *                effort to convert the object into a json object
      * @return the json object is returned after the project data is obtained
      */
     public static JSONObject getProjectJson(Project project) {
@@ -139,12 +144,14 @@ public class DataWriter extends DataConstants {
 
     /**
      * 
-     * @param section the method getSectionJson takes in a section object and extracts
-     * the arguments from the section and makes them into json attributes in an 
-     * effort to convert the object into a json object
+     * @param section the method getSectionJson takes in a section object and
+     *                extracts
+     *                the arguments from the section and makes them into json
+     *                attributes in an
+     *                effort to convert the object into a json object
      * @return the json object is returned after the section data is obtained
      */
-     public static JSONObject getSectionJson(Section section) {
+    public static JSONObject getSectionJson(Section section) {
         JSONObject sectionJson = new JSONObject();
         sectionJson.put(PROJECT_SECTION_TITLE, section.title);
 
@@ -159,8 +166,9 @@ public class DataWriter extends DataConstants {
     /**
      * 
      * @param task the method getTaskJson takes in a task object and extracts
-     * the arguments from the task and makes them into json attributes in an 
-     * effort to convert the object into a json object
+     *             the arguments from the task and makes them into json attributes
+     *             in an
+     *             effort to convert the object into a json object
      * @return the json object is returned after the task data is obtained
      */
     public static JSONObject getTaskJson(Task task) {
@@ -194,9 +202,11 @@ public class DataWriter extends DataConstants {
 
     /**
      * 
-     * @param comment the method getCommentJson takes in a section object and extracts
-     * the arguments from the comment and makes them into json attributes in an 
-     * effort to convert the object into a json object
+     * @param comment the method getCommentJson takes in a section object and
+     *                extracts
+     *                the arguments from the comment and makes them into json
+     *                attributes in an
+     *                effort to convert the object into a json object
      * @return the json object is returned after the comment data is obtained
      */
     public static JSONObject getCommentJson(Comment comment) {
@@ -217,8 +227,9 @@ public class DataWriter extends DataConstants {
     /**
      * 
      * @param change the method getChangeJson takes in a section object and extracts
-     * the arguments from the change and makes them into json attributes in an 
-     * effort to convert the object into a json object
+     *               the arguments from the change and makes them into json
+     *               attributes in an
+     *               effort to convert the object into a json object
      * @return the json object is returned after the change data is obtained
      */
     public static JSONObject getChangeJson(Change change) {

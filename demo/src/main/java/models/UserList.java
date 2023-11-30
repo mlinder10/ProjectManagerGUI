@@ -3,6 +3,7 @@ package models;
 import java.util.ArrayList;
 
 import utils.DataLoader;
+import utils.DataWriter;
 
 /**
  * Creates an array list of users
@@ -82,6 +83,7 @@ public class UserList {
         User newUser = new User(username, password, email);
         users.add(newUser);
         user = newUser;
+        DataWriter.saveUsers(users);
         return true;
     }
 
@@ -105,7 +107,7 @@ public class UserList {
         for (User userElement : users) {
             if (userElement.login(username, password)) {
                 user = userElement;
-                return false;
+                return true;
             }
         }
         return false;

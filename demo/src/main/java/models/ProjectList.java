@@ -7,6 +7,7 @@ package models;
 import java.util.ArrayList;
 
 import utils.DataLoader;
+import utils.DataWriter;
 
 public class ProjectList {
 
@@ -66,6 +67,7 @@ public class ProjectList {
     public boolean createProject(User user, String title) {
         Project newProject = new Project(title, user);
         projects.add(newProject);
+        DataWriter.saveProjects(projects);
         return true;
     }
 
@@ -77,6 +79,7 @@ public class ProjectList {
      */
     public boolean deleteProject(Project project) {
         projects.remove(project);
+        DataWriter.saveProjects(projects);
         return true;
     }
 
