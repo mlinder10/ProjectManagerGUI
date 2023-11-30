@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="310.0" style="-fx-background-color: #37B5BA; -fx-padding: 12; -fx-spacing: 8;">
+         <children>
+            <Button mnemonicParsing="false" style="-fx-background-color: inherit; -fx-padding: 0;" text="Dashboard" textFill="WHITE" />
+            <Label text="Projects" textFill="WHITE" />
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: inherit;">
+               <content>
+                  <VBox prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: inherit;">
+                     <children>
+                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 1" />
+                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 2" />
+                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 3" />
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <Label text="Tasks" textFill="WHITE" />
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: inherit;">
+               <content>
+                  <VBox prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: inherit;">
+                     <children>
+                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Task 1" />
+                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Task 2" />
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+      <VBox prefHeight="400.0" prefWidth="526.0" style="-fx-padding: 24; -fx-spacing: 16; -fx-background-color: #164A6A;">
+         <children>
+            <VBox prefHeight="49.0" prefWidth="65.0">
+               <children>
+                  <Label text="Task 1" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2c53d" height="13.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
+               </children>
+            </VBox>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." wrappingWidth="284.80334854125977">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" />
+         </children>
+      </VBox>
+      <Pane prefHeight="400.0" prefWidth="335.0" style="-fx-background-color: #37B5BA;">
+         <children>
+            <Label layoutX="20.0" layoutY="14.0" prefHeight="29.0" prefWidth="106.0" text="Assigned Users" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#249296" height="49.0" layoutX="17.0" layoutY="62.0" stroke="BLACK" strokeType="INSIDE" width="106.0" />
+            <Text layoutX="36.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="68.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="32.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User@email.com" wrappingWidth="76.66663869222009">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#249296" height="49.0" layoutX="17.0" layoutY="151.0" stroke="BLACK" strokeType="INSIDE" width="106.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#249296" height="49.0" layoutX="17.0" layoutY="242.0" stroke="BLACK" strokeType="INSIDE" width="106.0" />
+            <Text layoutX="36.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="66.66666666666663">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="32.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User@email.com" wrappingWidth="76.6666386922202">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Text layoutX="31.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User@email.com" wrappingWidth="76.6666386922202">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Text layoutX="35.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="67.99999999999977">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</HBox>
