@@ -12,11 +12,18 @@ import utils.DataWriter;
 public class ProjectFACADE {
     private UserList userList;
     private ProjectList projectList;
+    static private ProjectFACADE instance;
+
+    public static ProjectFACADE getInstance() {
+        if (instance == null)
+            instance = new ProjectFACADE();
+        return instance;
+    }
 
     /**
      * Contrustor cretes new user list and project list
      */
-    public ProjectFACADE() {
+    private ProjectFACADE() {
         this.userList = UserList.getUserList();
         this.projectList = ProjectList.getProjectList();
     }
