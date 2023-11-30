@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
          <image>
@@ -33,10 +33,10 @@
                         <Font name="Comic Sans MS" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="emailField" prefHeight="26.0" prefWidth="189.0" promptText="Email" style="-fx-max-width: 150;" />
-                  <TextField fx:id="usernameField" prefHeight="26.0" prefWidth="189.0" promptText="Username" style="-fx-max-width: 150;" />
-                  <PasswordField fx:id="passwordField" promptText="Password" style="-fx-max-width: 150;" />
-                  <Button fx:id="registerBtn" mnemonicParsing="false" style="-fx-max-width: 150; -fx-background-color: #F2C53D;" text="Register" textFill="WHITE" />
+                  <TextField id="emailField" prefHeight="26.0" prefWidth="189.0" promptText="Email" style="-fx-max-width: 150;" />
+                  <TextField id="usernameField" prefHeight="26.0" prefWidth="189.0" promptText="Username" style="-fx-max-width: 150;" />
+                  <PasswordField id="passwordField" promptText="Password" style="-fx-max-width: 150;" />
+                  <Button id="registerBtn" mnemonicParsing="false" style="-fx-max-width: 150; -fx-background-color: #F2C53D;" text="Register" textFill="WHITE" />
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
                      <children>
                         <Label text="Already have an account?" textFill="WHITE">
@@ -44,7 +44,7 @@
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Button fx:id="loginBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Login" textFill="#f2c53d">
+                        <Button id="loginBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Login" textFill="#f2c53d">
                            <font>
                               <Font size="10.0" />
                            </font>
