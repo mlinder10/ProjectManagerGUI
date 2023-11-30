@@ -10,28 +10,44 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.text.Font?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../assets/Teamwork.png" />
+            <Image url="@../../assets/Teamwork.png" />
          </image>
       </ImageView>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <VBox layoutX="185.0" layoutY="84.0" prefHeight="233.0" prefWidth="231.0" style="-fx-background-color: #24929688; -fx-background-radius: 30; -fx-alignment: center;">
+            <VBox layoutX="168.0" layoutY="82.0" prefHeight="236.0" prefWidth="264.0" style="-fx-background-color: #24929688; -fx-background-radius: 30; -fx-alignment: center; -fx-spacing: 8; -fx-padding: 8;">
                <children>
-                  <Label text="Task Share" />
-                  <Label text="Label" />
-                  <TextField />
-                  <PasswordField />
-                  <Button mnemonicParsing="false" text="Button" />
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <Label text="Task Share">
+                     <font>
+                        <Font name="Comic Sans MS" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label text="Welcome Back">
+                     <font>
+                        <Font name="Comic Sans MS" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField id="usernameField" prefHeight="26.0" prefWidth="189.0" promptText="Username" style="-fx-max-width: 150;" />
+                  <PasswordField id="passwordField" promptText="Password" style="-fx-max-width: 150;" />
+                  <Button id="loginBtn" mnemonicParsing="false" style="-fx-max-width: 150; -fx-background-color: #F2C53D;" text="Login" textFill="WHITE" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
                      <children>
-                        <Label text="Label" />
-                        <Button mnemonicParsing="false" text="Button" />
+                        <Label text="Don't have an account?" textFill="WHITE">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Button id="registerBtn" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Register" textFill="#f2c53d">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
                      </children>
                   </HBox>
                </children>
