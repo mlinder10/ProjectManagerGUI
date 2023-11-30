@@ -6,6 +6,8 @@ package models;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import utils.DataWriter;
+
 public class Task {
 
     public UUID id;
@@ -77,6 +79,7 @@ public class Task {
      */
     public boolean createComment(Comment comment) {
         this.comments.add(comment);
+        DataWriter.saveProjects(ProjectList.getProjectList().projects);
         return true;
     }
 
@@ -88,6 +91,8 @@ public class Task {
      */
     public boolean deleteComment(Comment comment) {
         this.comments.remove(comment);
+        DataWriter.saveProjects(ProjectList.getProjectList().projects);
+
         return true;
     }
 
@@ -99,6 +104,7 @@ public class Task {
      */
     public boolean addAssignedUser(User user) {
         assignedUsers.add(user);
+        DataWriter.saveProjects(ProjectList.getProjectList().projects);
         return true;
     }
 
@@ -110,6 +116,7 @@ public class Task {
      */
     public boolean removeAssignedUser(User user) {
         assignedUsers.remove(user);
+        DataWriter.saveProjects(ProjectList.getProjectList().projects);
         return true;
     }
 }

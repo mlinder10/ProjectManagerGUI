@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
+import utils.DataWriter;
+
 /**
  * comment class. Comment on projects, tasks, and comments
  */
@@ -57,6 +59,7 @@ public class Comment {
      */
     public boolean createComment(Comment comment) {
         this.comments.add(comment);
+        DataWriter.saveProjects(ProjectList.getProjectList().projects);
         return true;
     }
 
@@ -68,6 +71,7 @@ public class Comment {
      */
     public boolean deleteComment(Comment comment) {
         this.comments.remove(comment);
+        DataWriter.saveProjects(ProjectList.getProjectList().projects);
         return true;
     }
 }

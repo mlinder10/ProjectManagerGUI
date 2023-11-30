@@ -59,7 +59,7 @@ public class RegisterController implements Initializable {
 
         if (UserList.getUserList().register(email, username, password)) {
             try {
-                App.setRoot("Login");
+                App.setRoot("Dashboard");
             } catch (IOException e) {
                 e.printStackTrace();
             }

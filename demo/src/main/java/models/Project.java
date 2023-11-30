@@ -3,6 +3,8 @@ package models;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import utils.DataWriter;
+
 /**
  * Creates a new project
  */
@@ -59,6 +61,7 @@ public class Project {
      */
     public boolean editProjectTitle(String title) {
         this.title = title;
+        DataWriter.saveProjects(ProjectList.getProjectList().projects);
         return true;
     }
 
@@ -83,6 +86,7 @@ public class Project {
      */
     public boolean deleteSection(Section section) {
         this.sections.remove(section);
+        DataWriter.saveProjects(ProjectList.getProjectList().projects);
         return true;
     }
 
@@ -94,6 +98,7 @@ public class Project {
      */
     public boolean addUser(User user) {
         this.users.add(user);
+        DataWriter.saveProjects(ProjectList.getProjectList().projects);
         return true;
     }
 
@@ -105,6 +110,7 @@ public class Project {
      */
     public boolean createComment(Comment comment) {
         this.comments.add(comment);
+        DataWriter.saveProjects(ProjectList.getProjectList().projects);
         return true;
     }
 
@@ -116,6 +122,7 @@ public class Project {
      */
     public boolean deleteComment(Comment comment) {
         this.comments.remove(comment);
+        DataWriter.saveProjects(ProjectList.getProjectList().projects);
         return true;
     }
 }
