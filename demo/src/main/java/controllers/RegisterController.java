@@ -16,9 +16,10 @@ import models.*;
 
 import javafx.fxml.Initializable;
 
-public class SignupController implements Initializable {
+public class RegisterController implements Initializable {
+    private ProjectFACADE facade;
 
-     @FXML
+    @FXML
     private ImageView backgroundImage;
 
     @FXML
@@ -36,28 +37,41 @@ public class SignupController implements Initializable {
     @FXML
     private TextField emailField;
 
-      @FXML
+    @FXML
     private Button loginBtn;
 
     @FXML
     private Button registerBtn;
 
-
     @FXML
-    private void btnRegistarClicked(MouseEvent event) throws IOException {
-
+    private void registerBtnClicked(MouseEvent event) {
         String username = usernameField.getText();
         String email = emailField.getText();
         String password = passwordField.getText();
 
-
+        if (facade.register(username, password, email)) {
+            try {
+                App.setRoot("Dashboard");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
+    @FXML
+    private void loginBtnClicked(MouseEvent event) {
+        try {
+            App.setRoot("Login");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'initialize'");
+        facade = ProjectFACADE.getInstance();
+        loginBtn.setOnMouseClicked(event -> loginBtnClicked(event));
+        registerBtn.setOnMouseClicked(event -> registerBtnClicked(event));
     }
-    
+
 }

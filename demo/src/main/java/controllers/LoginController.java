@@ -44,7 +44,6 @@ public class LoginController implements Initializable {
     private void handleLoginButtonClick(MouseEvent event) {
         String username = usernameField.getText();
         String password = passwordField.getText();
-        ProjectFACADE facade = ProjectFACADE.getInstance();
         if (facade.login(username, password)) {
             try {
                 App.setRoot("Dashboard");
@@ -68,5 +67,7 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         facade = ProjectFACADE.getInstance();
+        registerBtn.setOnMouseClicked(event -> handleRegisterButtonClick(event));
+        loginBtn.setOnMouseClicked(event -> handleLoginButtonClick(event));
     }
 }
