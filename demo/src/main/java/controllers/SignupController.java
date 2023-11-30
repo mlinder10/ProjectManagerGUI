@@ -49,6 +49,7 @@ public class SignupController implements Initializable {
         String username = usernameField.getText();
         String email = emailField.getText();
         String password = passwordField.getText();
+        
 
 
     }
