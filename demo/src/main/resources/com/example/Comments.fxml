@@ -4,9 +4,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -38,11 +40,11 @@
             </ScrollPane>
          </children>
       </VBox>
-      <VBox prefHeight="400.0" prefWidth="526.0" style="-fx-padding: 24; -fx-spacing: 16;">
+      <VBox prefHeight="400.0" prefWidth="526.0" style="-fx-padding: 24; -fx-spacing: 16; -fx-background-color: #164A6A;">
          <children>
             <VBox prefHeight="89.0" prefWidth="467.0">
                <children>
-                  <Label text="Comments - Task 1">
+                  <Label text="Comments - Task 1" textFill="WHITE">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -50,7 +52,46 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2c53d" height="13.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
                </children>
             </VBox>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#249296" height="319.0" stroke="BLACK" strokeType="INSIDE" width="422.0" />
+            <Pane prefHeight="302.0" prefWidth="419.0" style="-fx-background-color: #249296;">
+               <children>
+                  <Text fill="WHITE" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
+                  <Text fill="WHITE" layoutX="99.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nov 30, 2023">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="14.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " wrappingWidth="379.736328125" />
+                  <Button layoutX="15.0" layoutY="80.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="56.0" style="-fx-background-color: #ffffff;" text="Reply -&gt;" textFill="#fcca00">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+                  <Text fill="WHITE" layoutX="58.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
+                  <Text fill="WHITE" layoutX="133.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nov 30, 2023">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="58.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " wrappingWidth="336.736328125" />
+                  <Text fill="WHITE" layoutX="15.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
+                  <Text fill="WHITE" layoutX="99.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nov 30, 2023">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="16.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " wrappingWidth="373.736328125" />
+                  <Button layoutX="58.0" layoutY="166.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="56.0" style="-fx-background-color: #ffffff;" text="Reply -&gt;" textFill="#fcca00">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="15.0" layoutY="253.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="56.0" style="-fx-background-color: #ffffff;" text="Reply -&gt;" textFill="#fcca00">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
          </children>
       </VBox>
    </children>
