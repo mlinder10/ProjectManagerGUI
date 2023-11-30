@@ -1,6 +1,8 @@
 package controllers;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import com.example.App;
 
@@ -11,8 +13,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import models.ProjectFACADE;
+import javafx.fxml.Initializable;
 
-public class LoginController {
+public class LoginController implements Initializable {
 
     @FXML
     private ImageView backgroundImage;
@@ -36,37 +39,33 @@ public class LoginController {
     private Button registerBtn;
 
     @FXML
-    private void initialize() {
-        // You can perform additional initialization here if needed
-    }
-
-    @FXML
     private void handleLoginButtonClick() {
-        // Handle login button click event
         String username = usernameField.getText();
         String password = passwordField.getText();
-        loginBtn.setOnMouseClicked(event -> {
-            ProjectFACADE facade = ProjectFACADE.getInstance();
-            if (facade.login(username, password)) {
-                try {
-                    App.setRoot("Dashboard");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                System.out.println("error");
-            }
-        });
+        ProjectFACADE facade = ProjectFACADE.getInstance();
+        if (facade.login(username, password)) {
+        try {
+        App.setRoot("Dashboard");
+        } catch (IOException e) {
+        e.printStackTrace();
+        }
+        } else {
+        System.out.println("error");
+        }
     }
 
     @FXML
     private void handleRegisterButtonClick() {
-        registerBtn.setOnMouseClicked(event -> {
-            try {
-                App.setRoot("Register");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+        try {
+            App.setRoot("Register");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        // loginBtn.setOnMouseClicked(event -> handleLoginButtonClick());
+        // registerBtn.setOnMouseClicked(event -> handleRegisterButtonClick());
     }
 }
