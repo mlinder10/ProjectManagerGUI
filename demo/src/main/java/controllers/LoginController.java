@@ -12,10 +12,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import models.ProjectFACADE;
 import javafx.fxml.Initializable;
 
 public class LoginController implements Initializable {
+    private ProjectFACADE facade;
 
     @FXML
     private ImageView backgroundImage;
@@ -39,23 +41,23 @@ public class LoginController implements Initializable {
     private Button registerBtn;
 
     @FXML
-    private void handleLoginButtonClick() {
+    private void handleLoginButtonClick(MouseEvent event) {
         String username = usernameField.getText();
         String password = passwordField.getText();
         ProjectFACADE facade = ProjectFACADE.getInstance();
         if (facade.login(username, password)) {
-        try {
-        App.setRoot("Dashboard");
-        } catch (IOException e) {
-        e.printStackTrace();
-        }
+            try {
+                App.setRoot("Dashboard");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else {
-        System.out.println("error");
+            System.out.println("error");
         }
     }
 
     @FXML
-    private void handleRegisterButtonClick() {
+    private void handleRegisterButtonClick(MouseEvent event) {
         try {
             App.setRoot("Register");
         } catch (IOException e) {
@@ -65,7 +67,6 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        // loginBtn.setOnMouseClicked(event -> handleLoginButtonClick());
-        // registerBtn.setOnMouseClicked(event -> handleRegisterButtonClick());
+        facade = ProjectFACADE.getInstance();
     }
 }
