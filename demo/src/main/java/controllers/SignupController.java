@@ -15,11 +15,11 @@ import javafx.fxml.Initializable;
 public class SignupController implements Initializable {
 
     @FXML
-    private TextField txt_username;
+    private TextField usernameField;
     @FXML
-    private TextField txt_password;
+    private TextField passwordField;
     @FXML
-    private TextField txt_email;
+    private TextField emailField;
     @FXML
     private Label lbl_error;
 
