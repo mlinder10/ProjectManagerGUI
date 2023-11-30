@@ -1,3 +1,14 @@
 [
-    
+  {
+    "password": "password",
+    "id": "f1e3e520-b319-4b91-aa06-9434f41b3ef6",
+    "email": "amadden@gmail.com",
+    "username": "atticusmadden"
+  },
+  {
+    "password": "password",
+    "id": "f1e3e520-b319-4b91-aa06-9434f41b3ef6",
+    "email": "jeffg@outlook.com",
+    "username": "jeffgoldblum"
+  }
 ]
