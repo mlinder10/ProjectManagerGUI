@@ -8,10 +8,48 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import java.net.*?>
 
 
 <StackPane fx:id="stack" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashboardController">
    <children>
+<<<<<<< HEAD
+      <VBox prefHeight="400.0" prefWidth="193.0" style="-fx-background-color: inherit; -fx-padding: 12; -fx-spacing: 8;" >
+         <children>
+            <Button mnemonicParsing="false" style="-fx-background-color: inherit; -fx-padding: 0;" text="Dashboard" textFill="WHITE" />
+            <Label text="Projects" textFill="BLACK" />
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: inherit;">
+               <content>
+                  <VBox fx:id="sidenavProjects" prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #249296;">
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <Label text="Tasks" textFill="BLACK" />
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: inherit;">
+               <content>
+                  <VBox fx:id="sidenavTasks" prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: inherit;">
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+      <VBox prefHeight="400.0" prefWidth="526.0" style="-fx-background-color: inherit; -fx-padding: 24; -fx-spacing: 16;">
+         <children>
+            <VBox prefHeight="89.0" prefWidth="467.0" >
+               <children>
+                  <Label text="Dashboard" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#f2c53d" height="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="68.0"  />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Owner" />
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+=======
       <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <children>
             <VBox prefHeight="400.0" prefWidth="193.0" style="-fx-background-color: #37B5BA; -fx-padding: 12; -fx-spacing: 8;">
@@ -19,6 +57,7 @@
                   <Button mnemonicParsing="false" style="-fx-background-color: inherit; -fx-padding: 0;" text="Dashboard" textFill="WHITE" />
                   <Label text="Projects" textFill="BLACK" />
                   <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: inherit;">
+>>>>>>> d01a2073be3be2f959323388aa245a736f925ba2
                      <content>
                         <VBox fx:id="sidenavProjects" prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #249296;">
                   </VBox>
@@ -77,4 +116,5 @@
          </children>
       </HBox>
    </children>
+</HBox>
 </StackPane>
