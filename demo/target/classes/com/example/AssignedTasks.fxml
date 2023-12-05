@@ -19,24 +19,13 @@
             <Label text="Projects" textFill="WHITE" />
             <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #37B5BA;">
                <content>
-                  <VBox prefHeight="145.0" prefWidth="165.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #37B5BA;">
-                     <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 1" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 2" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 3" />
-                     </children>
-                  </VBox>
+                  <VBox prefHeight="145.0" prefWidth="165.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #37B5BA;" />
                </content>
             </ScrollPane>
             <Label style="-fx-background-color: #37B5BA;" text="Tasks" textFill="WHITE" />
             <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #37B5BA;">
                <content>
-                  <VBox prefHeight="146.0" prefWidth="166.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #37B5BA;">
-                     <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Task 1" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Task 2" />
-                     </children>
-                  </VBox>
+                  <VBox prefHeight="146.0" prefWidth="166.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #37B5BA;" />
                </content>
             </ScrollPane>
          </children>
@@ -58,10 +47,6 @@
             <Pane prefHeight="300.0" prefWidth="436.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="77.0" layoutY="-30.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
-                  <Text fill="WHITE" layoutX="34.0" layoutY="-9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task 1">
-                     <font>
-                        <Font size="18.0" />
-                     </font></Text>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="77.0" layoutX="320.0" layoutY="-30.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="77.0" layoutX="160.0" layoutY="-30.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="77.0" layoutX="1.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
@@ -70,16 +55,6 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="77.0" layoutX="2.0" layoutY="150.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="77.0" layoutX="160.0" layoutY="151.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="77.0" layoutX="321.0" layoutY="152.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
-                  <Text fill="WHITE" layoutX="194.0" layoutY="-9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task 2">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="354.0" layoutY="-9.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task 3">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
                </children>
             </Pane>
             <Accordion />

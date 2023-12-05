@@ -19,24 +19,13 @@
             <Label text="Projects" textFill="WHITE" />
             <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #37B5BA;">
                <content>
-                  <VBox prefHeight="145.0" prefWidth="93.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #37B5BA;">
-                     <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 1" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 2" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 3" />
-                     </children>
-                  </VBox>
+                  <VBox prefHeight="145.0" prefWidth="93.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #37B5BA;" />
                </content>
             </ScrollPane>
             <Label style="-fx-background-color: #37B5BA;" text="Tasks" textFill="WHITE" />
             <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #37B5BA;">
                <content>
-                  <VBox prefHeight="144.0" prefWidth="93.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #37B5BA;">
-                     <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Task 1" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Task 2" />
-                     </children>
-                  </VBox>
+                  <VBox prefHeight="144.0" prefWidth="93.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #37B5BA;" />
                </content>
             </ScrollPane>
          </children>
@@ -53,14 +42,14 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2c53d" height="13.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
                </children>
             </VBox>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." wrappingWidth="284.80334854125977">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="284.80334854125977">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" />
             <Accordion />
-            <Pane prefHeight="60.0" prefWidth="186.0" scaleX="1.164" style="-fx-background-color: #F2C53D;" translateY="67.0">
+            <Pane prefHeight="60.0" prefWidth="186.0" scaleX="1.164" style="-fx-background-color: #F2C53D;" translateY="168.0">
                <children>
                   <Label accessibleRole="BUTTON" layoutX="92.0" layoutY="22.0" text="Comments (10) -&gt;" textFill="WHITE" />
                </children>
