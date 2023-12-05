@@ -8,22 +8,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import java.net.*?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashboardController">
    <children>
-      <VBox prefHeight="400.0" prefWidth="193.0" style="-fx-background-color: inherit; -fx-padding: 12; -fx-spacing: 8;">
+      <VBox prefHeight="400.0" prefWidth="193.0" style="-fx-background-color: inherit; -fx-padding: 12; -fx-spacing: 8;" >
          <children>
             <Button mnemonicParsing="false" style="-fx-background-color: inherit; -fx-padding: 0;" text="Dashboard" textFill="WHITE" />
             <Label text="Projects" textFill="BLACK" />
             <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: inherit;">
                <content>
                   <VBox fx:id="sidenavProjects" prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #249296;">
-                  <VBox prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: inherit;">
-                     <children>
-                        <Button fx:id = "Project1" mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 1" textFill="WHITE" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 2" textFill = "WHITE" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 3" textFill = "WHITE" />
-                     </children>
                   </VBox>
                </content>
             </ScrollPane>
@@ -36,16 +31,16 @@
             </ScrollPane>
          </children>
       </VBox>
-      <VBox prefHeight="400.0" prefWidth="526.0" style="-fx-background-color: 164; -fx-padding: 24; -fx-spacing: 16;">
+      <VBox prefHeight="400.0" prefWidth="526.0" style="-fx-background-color: inherit; -fx-padding: 24; -fx-spacing: 16;">
          <children>
-            <VBox prefHeight="89.0" prefWidth="467.0">
+            <VBox prefHeight="89.0" prefWidth="467.0" >
                <children>
                   <Label text="Dashboard" textFill="WHITE">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#f2c53d" height="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="68.0" />
+                  <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#f2c53d" height="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="68.0"  />
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0">
@@ -73,4 +68,7 @@
          </children>
       </VBox>
    </children>
+   <stylesheets>
+      <URL value="@styles.css" />
+   </stylesheets>
 </HBox>
