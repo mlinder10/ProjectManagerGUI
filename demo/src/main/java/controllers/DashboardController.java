@@ -1,8 +1,11 @@
 package controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import com.example.App;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -50,6 +53,14 @@ public class DashboardController implements Initializable {
         for (Project project : owned) {
             VBox projectContainer = new VBox();
             Button title = new Button(project.title);
+            title.setOnMouseClicked(event -> {
+                facade.openProject(project);
+                try {
+                    App.setRoot("OwnerProject");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
             ProgressBar progressBar = new ProgressBar(project.getPercentage());
             projectContainer.getChildren().addAll(title, progressBar);
             ownerHbox.getChildren().add(projectContainer);
@@ -57,6 +68,14 @@ public class DashboardController implements Initializable {
         for (Project project : member) {
             VBox projectContainer = new VBox();
             Button title = new Button(project.title);
+            title.setOnMouseClicked(event -> {
+                facade.openProject(project);
+                try {
+                    App.setRoot("MemberProject");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
             ProgressBar progressBar = new ProgressBar(project.getPercentage());
             projectContainer.getChildren().addAll(title, progressBar);
             memberHbox.getChildren().add(projectContainer);
