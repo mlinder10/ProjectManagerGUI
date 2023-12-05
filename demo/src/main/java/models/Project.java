@@ -29,6 +29,9 @@ public class Project {
         this.comments = new ArrayList<Comment>();
         this.users = new ArrayList<User>();
         this.sections = new ArrayList<Section>();
+        this.sections.add(new Section("Todo"));
+        this.sections.add(new Section("Doing"));
+        this.sections.add(new Section("Done"));
     }
 
     /**
@@ -124,5 +127,20 @@ public class Project {
         this.comments.remove(comment);
         DataWriter.saveProjects(ProjectList.getProjectList().projects);
         return true;
+    }
+
+    public double getPercentage() {
+        int totalTasks = 0;
+        for (Section section : sections) {
+            totalTasks += section.tasks.size();
+        }
+        int completedTasks = 0;
+        for (Section section : sections) {
+            if (section.title.equals("Done")) {
+                completedTasks = section.tasks.size();
+                break;
+            }
+        }
+        return (double) completedTasks / totalTasks;
     }
 }

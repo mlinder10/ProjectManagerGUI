@@ -1,66 +1,71 @@
 package controllers;
 
-import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import com.example.App;
-
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import models.Project;
 import models.ProjectFACADE;
+import models.Task;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-public class DashboardController implements Initializable{
+public class DashboardController implements Initializable {
     private ProjectFACADE facade;
 
-    private Button Project1;
-    private Button Project2;
-    private Button Project3;
-    private Button Task1;
-    private Button Task2;
+    @FXML
+    private HBox ownerHbox;
 
-    private void handleProject1ButtonClick(MouseEvent event) {
+    @FXML
+    private HBox memberHbox;
 
-        ProjectFACADE facade = ProjectFACADE.getInstance();
+    @FXML
+    private VBox sidenavTasks;
 
-        facade.getProject("Project 1");
-        facade.openProject("Project 1");
-        try {
-             App.setRoot("OwnerProject");
-        } catch (Exception e) {
-            e.printStackTrace();
+    @FXML
+    private VBox sidenavProjects;
+
+    private void populateSidenav() {
+        ArrayList<Task> tasks = facade.getUserTasks();
+        ArrayList<Project> projects = facade.getUserProjects();
+        for (Task task : tasks) {
+            Button title = new Button(task.title);
+            sidenavTasks.getChildren().add(title);
         }
-       
-
-           
+        for (Project project : projects) {
+            Button title = new Button(project.title);
+            sidenavProjects.getChildren().add(title);
+        }
     }
 
-    private void handleTask1ButtonClick(MouseEvent event) {
-        ProjectFACADE facade =ProjectFACADE.getInstance();
-
-        facade.getTask("Task 1");
-        try {
-             App.setRoot("task1");
-        } catch (Exception e) {
-            e.printStackTrace();
+    private void createProjects() {
+        ArrayList<Project> owned = facade.getOwnerProjects();
+        ArrayList<Project> member = facade.getMemberProjects();
+        for (Project project : owned) {
+            VBox projectContainer = new VBox();
+            Button title = new Button(project.title);
+            ProgressBar progressBar = new ProgressBar(project.getPercentage());
+            projectContainer.getChildren().addAll(title, progressBar);
+            ownerHbox.getChildren().add(projectContainer);
         }
-       
+        for (Project project : member) {
+            VBox projectContainer = new VBox();
+            Button title = new Button(project.title);
+            ProgressBar progressBar = new ProgressBar(project.getPercentage());
+            projectContainer.getChildren().addAll(title, progressBar);
+            memberHbox.getChildren().add(projectContainer);
+        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-      facade = ProjectFACADE.getInstance();
-        Project1.setOnMouseClicked(event -> handleProject1ButtonClick(event));
-        Task1.setOnMouseClicked(event -> handleTask1ButtonClick(event));
+        facade = ProjectFACADE.getInstance();
+        populateSidenav();
+        createProjects();
     }
 
-    
-    
 }
