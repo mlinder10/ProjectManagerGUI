@@ -1,5 +1,8 @@
 package utils;
 
+import com.example.App;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.scene.control.Button;
@@ -14,10 +17,26 @@ public class SceneBuilder {
         ArrayList<Project> projects = facade.getUserProjects();
         for (Task task : tasks) {
             Button title = new Button(task.title);
+            title.setOnMouseClicked(event -> {
+                facade.openTask(task);
+                try {
+                    App.setRoot("Task");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
             taskBox.getChildren().add(title);
         }
         for (Project project : projects) {
             Button title = new Button(project.title);
+            title.setOnMouseClicked(event -> {
+                facade.openProject(project);
+                try {
+                    App.setRoot("OwnerProject");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
             projectBox.getChildren().add(title);
         }
     }

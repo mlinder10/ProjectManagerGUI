@@ -78,6 +78,18 @@ public class ProjectFACADE {
         return projects;
     }
 
+    public void openProject(Project project) {
+        projectList.currentProject = project;
+    }
+
+    public void openTask(Task task) {
+        projectList.currentTask = task;
+    }
+
+    public ArrayList<Section> getCurrentSections() {
+        return projectList.currentProject.sections;
+    }
+
     /**
      * Logs in user
      * 
