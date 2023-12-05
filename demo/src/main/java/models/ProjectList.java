@@ -14,6 +14,7 @@ public class ProjectList {
     private static ProjectList projectList;
     public ArrayList<Project> projects;
     public Project currentProject;
+    public Task currentTask;
 
     private ProjectList() {
         this.projects = DataLoader.loadProjects();
