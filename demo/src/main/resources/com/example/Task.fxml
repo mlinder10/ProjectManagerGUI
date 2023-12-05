@@ -19,14 +19,14 @@
          <children>
             <Button fx:id="dashboardBtn" mnemonicParsing="false" style="-fx-background-color: inherit; -fx-padding: 0;" text="Dashboard" textFill="WHITE" />
             <Label text="Projects" textFill="WHITE" />
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #37B5BA; -fx-background: transparent;">
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #37B5BA; -fx-background: transparent; -fx-vbar-policy: never; -fx-hbar-policy: never;">
                <content>
                   <VBox fx:id="sidenavProjects" prefHeight="141.0" prefWidth="99.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #37B5BA;">
                   </VBox>
                </content>
             </ScrollPane>
             <Label style="-fx-background-color: #37B5BA;" text="Tasks" textFill="WHITE" />
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #37B5BA; -fx-background: transparent;">
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #37B5BA; -fx-background: transparent; -fx-vbar-policy: never; -fx-hbar-policy: never;">
                <content>
                   <VBox fx:id="sidenavTasks" prefHeight="144.0" prefWidth="99.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #37B5BA;">
                   </VBox>
@@ -72,7 +72,7 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <ScrollPane prefHeight="321.0" prefWidth="102.0" style="-fx-background: transparent; -fx-background-color: #37B5BA;">
+            <ScrollPane prefHeight="321.0" prefWidth="102.0" style="-fx-background: transparent; -fx-background-color: #37B5BA; -fx-vbar-policy: never; -fx-hbar-policy: never;">
                <content>
                   <VBox fx:id="userList" prefHeight="287.0" prefWidth="97.0" />
                </content>

@@ -1,6 +1,5 @@
 package models;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import utils.DataWriter;
@@ -92,6 +91,10 @@ public class ProjectFACADE {
 
     public Task getCurrentTask() {
         return projectList.currentTask;
+    }
+
+    public Project getCurrentProject() {
+        return projectList.currentProject;
     }
 
     /**

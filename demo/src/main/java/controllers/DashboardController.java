@@ -1,15 +1,12 @@
 package controllers;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import com.example.App;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -52,11 +49,11 @@ public class DashboardController implements Initializable {
             memberHbox.getChildren().remove(i);
         }
         for (Project project : owned) {
-            VBox projectContainer = createProject(project);
+            VBox projectContainer = SceneBuilder.createDashboardProject(facade, project);
             ownerHbox.getChildren().add(projectContainer);
         }
         for (Project project : member) {
-            VBox projectContainer = createProject(project);
+            VBox projectContainer = SceneBuilder.createDashboardProject(facade, project);
             memberHbox.getChildren().add(projectContainer);
         }
     }
@@ -95,26 +92,6 @@ public class DashboardController implements Initializable {
             modal.getChildren().add(modalInternal);
             stack.getChildren().add(modal);
         });
-    }
-
-    private VBox createProject(Project project) {
-        VBox projectContainer = new VBox();
-        projectContainer.setStyle("-fx-alignment: center; -fx-spacing: 4;");
-        Button title = new Button(project.title);
-        title.setStyle("-fx-background-color: inherit; -fx-text-fill: white;");
-        title.setOnMouseClicked(event -> {
-            facade.openProject(project);
-            try {
-                App.setRoot("OwnerProject");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-        double percentage = project.getPercentage();
-        ProgressBar progressBar = new ProgressBar(percentage);
-        Label percentageLabel = new Label((int)(percentage * 100) + "%");
-        projectContainer.getChildren().addAll(title, percentageLabel,progressBar);
-        return projectContainer;
     }
 
     @Override
