@@ -18,12 +18,12 @@
                <content>
                   <VBox fx:id="sidenavProjects" prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #249296;">
                   </VBox>
-               </content>
-            </ScrollPane>
-            <Label text="Tasks" textFill="BLACK" />
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: inherit;">
-               <content>
-                  <VBox fx:id="sidenavTasks" prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: inherit;">
+                     </content>
+                  </ScrollPane>
+                  <Label text="Tasks" textFill="BLACK" />
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: inherit;">
+                     <content>
+                        <VBox fx:id="sidenavTasks" prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #249296;">
                   </VBox>
                </content>
             </ScrollPane>
