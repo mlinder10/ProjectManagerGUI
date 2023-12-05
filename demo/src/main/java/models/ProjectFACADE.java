@@ -1,5 +1,6 @@
 package models;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import utils.DataWriter;
@@ -35,12 +36,46 @@ public class ProjectFACADE {
      * 
      * @return current project
      */
-    public Project getCurrentProject() {
-        return projectList.currentProject;
+    public ArrayList<Project> getOwnerProjects() {
+        ArrayList<Project> projects = new ArrayList<Project>();
+        for (Project project : projectList.projects) {
+            if (project.owner.id.equals(userList.user.id))
+                projects.add(project);
+        }
+        return projects;
     }
 
-    public ArrayList<Project> getAllProjects() {
-        return projectList.projects;
+    public ArrayList<Project> getMemberProjects() {
+        ArrayList<Project> projects = new ArrayList<Project>();
+        for (Project project : projectList.projects) {
+            for (User user : project.users) {
+                if (user.id.equals(userList.user.id))
+                    projects.add(project);
+            }
+        }
+        return projects;
+    }
+
+    public ArrayList<Task> getUserTasks() {
+        ArrayList<Task> tasks = new ArrayList<Task>();
+        for (Project project : projectList.projects) {
+            for (Section section : project.sections) {
+                for (Task task : section.tasks) {
+                    for (User user : task.assignedUsers) {
+                        if (user.id.equals(userList.user.id))
+                            tasks.add(task);
+                    }
+                }
+            }
+        }
+        return tasks;
+    }
+
+    public ArrayList<Project> getUserProjects() {
+        ArrayList<Project> projects = new ArrayList<Project>();
+        projects.addAll(getMemberProjects());
+        projects.addAll(getOwnerProjects());
+        return projects;
     }
 
     /**

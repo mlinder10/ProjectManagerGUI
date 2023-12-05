@@ -17,23 +17,14 @@
             <Label text="Projects" textFill="BLACK" />
             <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: inherit;">
                <content>
-                  <VBox prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #249296;">
-                     <children>
-                        <Button fx:id = "Project1" mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 1" textFill="WHITE" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 2" textFill = "WHITE" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 3" textFill = "WHITE" />
-                     </children>
+                  <VBox fx:id="sidenavProjects" prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #249296;">
                   </VBox>
                </content>
             </ScrollPane>
             <Label text="Tasks" textFill="BLACK" />
             <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: inherit;">
                <content>
-                  <VBox prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: inherit;">
-                     <children>
-                        <Button fx:id = "Task1" mnemonicParsing="false" style="-fx-background-color: inherit;" text="Task 1" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Task 2" />
-                     </children>
+                  <VBox fx:id="sidenavTasks" prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: inherit;">
                   </VBox>
                </content>
             </ScrollPane>
@@ -57,20 +48,6 @@
                   <ScrollPane prefHeight="200.0" prefWidth="200.0">
                      <content>
                         <HBox fx:id="ownerHbox" prefHeight="120.0" style="-fx-spacing: 32;">
-                           <!-- <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
-                                 <children>
-                                    <Button fx:id= "Project1" mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 1" />
-                                    <ProgressBar prefWidth="200.0" progress="0.0" />
-                                 </children>
-                              </VBox>
-                              <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
-                                 <children>
-                                    <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 2" />
-                                    <ProgressBar prefWidth="200.0" progress="0.0" />
-                                 </children>
-                              </VBox>
-                           </children> -->
                         </HBox>
                      </content>
                   </ScrollPane>
@@ -82,14 +59,6 @@
                   <ScrollPane prefHeight="200.0" prefWidth="200.0">
                      <content>
                         <HBox fx:id="memberHbox" prefHeight="120.0" style="-fx-spacing: 32;">
-                           <!-- <children>
-                              <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
-                                 <children>
-                                    <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 3" />
-                                    <ProgressBar prefWidth="200.0" progress="0.0" />
-                                 </children>
-                              </VBox>
-                           </children> -->
                         </HBox>
                      </content>
                   </ScrollPane>
