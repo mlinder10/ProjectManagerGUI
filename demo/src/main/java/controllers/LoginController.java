@@ -44,7 +44,6 @@ public class LoginController implements Initializable {
     private void handleLoginButtonClick(MouseEvent event) {
         String username = usernameField.getText();
         String password = passwordField.getText();
-        ProjectFACADE facade = ProjectFACADE.getInstance();
         if (facade.login(username, password)) {
             try {
                 App.setRoot("Dashboard");
