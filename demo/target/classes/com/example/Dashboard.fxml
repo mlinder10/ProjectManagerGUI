@@ -18,12 +18,6 @@
             <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: inherit;">
                <content>
                   <VBox fx:id="sidenavProjects" prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #249296;">
-                  <VBox prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: inherit;">
-                     <children>
-                        <Button fx:id = "Project1" mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 1" textFill="WHITE" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 2" textFill = "WHITE" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 3" textFill = "WHITE" />
-                     </children>
                   </VBox>
                </content>
             </ScrollPane>
