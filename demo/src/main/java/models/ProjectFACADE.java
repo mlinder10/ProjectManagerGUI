@@ -86,6 +86,10 @@ public class ProjectFACADE {
         projectList.currentTask = task;
     }
 
+    public ArrayList<Section> getCurrentSections() {
+        return projectList.currentProject.sections;
+    }
+
     /**
      * Logs in user
      * 

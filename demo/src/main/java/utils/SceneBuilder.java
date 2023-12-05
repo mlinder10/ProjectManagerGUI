@@ -20,7 +20,7 @@ public class SceneBuilder {
             title.setOnMouseClicked(event -> {
                 facade.openTask(task);
                 try {
-                    App.setRoot("AssignedTasks");
+                    App.setRoot("Task");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
