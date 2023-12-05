@@ -4,7 +4,6 @@ import com.example.App;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import models.Project;
