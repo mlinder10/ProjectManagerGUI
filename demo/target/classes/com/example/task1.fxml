@@ -45,7 +45,7 @@
          <children>
             <VBox prefHeight="49.0" prefWidth="65.0">
                <children>
-                  <Label prefHeight="35.0" prefWidth="164.0" text="Task 1" textFill="WHITE">
+                  <Label prefHeight="35.0" prefWidth="257.0" text="Task 1 - New Feature" textFill="WHITE">
                      <font>
                         <Font size="24.0" />
                      </font>
