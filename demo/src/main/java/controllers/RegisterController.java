@@ -56,6 +56,7 @@ public class RegisterController implements Initializable {
         String username = usernameField.getText();
         String email = emailField.getText();
         String password = passwordField.getText();
+        
 
         if (UserList.getUserList().register(email, username, password)) {
             try {
