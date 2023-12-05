@@ -11,27 +11,27 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="400.0" prefWidth="193.0" style="-fx-background-color: #000; -fx-padding: 12; -fx-spacing: 8;">
+      <VBox prefHeight="400.0" prefWidth="193.0" style="-fx-background-color: #37B5BA; -fx-padding: 12; -fx-spacing: 8;">
          <children>
             <Button mnemonicParsing="false" style="-fx-background-color: inherit; -fx-padding: 0;" text="Dashboard" textFill="WHITE" />
-            <Label text="Projects" textFill="WHITE" />
+            <Label text="Projects" textFill="BLACK" />
             <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: inherit;">
                <content>
-                  <VBox prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: inherit;">
+                  <VBox prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #249296;">
                      <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 1" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 2" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 3" />
+                        <Button fx:id = "Project1" mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 1" textFill="WHITE" />
+                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 2" textFill = "WHITE" />
+                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 3" textFill = "WHITE" />
                      </children>
                   </VBox>
                </content>
             </ScrollPane>
-            <Label text="Tasks" textFill="WHITE" />
+            <Label text="Tasks" textFill="BLACK" />
             <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: inherit;">
                <content>
                   <VBox prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: inherit;">
                      <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Task 1" />
+                        <Button fx:id = "Task1" mnemonicParsing="false" style="-fx-background-color: inherit;" text="Task 1" />
                         <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Task 2" />
                      </children>
                   </VBox>
@@ -60,7 +60,7 @@
                            <children>
                               <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
                                  <children>
-                                    <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 1" />
+                                    <Button fx:id= "Project1" mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 1" />
                                     <ProgressBar prefWidth="200.0" progress="0.0" />
                                  </children>
                               </VBox>
