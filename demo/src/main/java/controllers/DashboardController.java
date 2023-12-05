@@ -108,7 +108,7 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         facade = ProjectFACADE.getInstance();
-        SceneBuilder.populateNavbar(facade, sidenavProjects, sidenavProjects);
+        SceneBuilder.populateNavbar(facade, sidenavProjects, sidenavTasks);
         populateProjects();
         handleCreateBtnClick();
     }

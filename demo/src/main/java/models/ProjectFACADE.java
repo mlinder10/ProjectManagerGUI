@@ -90,6 +90,10 @@ public class ProjectFACADE {
         return projectList.currentProject.sections;
     }
 
+    public Task getCurrentTask() {
+        return projectList.currentTask;
+    }
+
     /**
      * Logs in user
      * 
