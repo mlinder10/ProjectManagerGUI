@@ -33,7 +33,7 @@
                   </ScrollPane>
                </children>
             </VBox>
-            <VBox prefHeight="400.0" prefWidth="526.0" style="-fx-background-color: 164; -fx-padding: 24; -fx-spacing: 16;">
+            <VBox prefHeight="400.0" prefWidth="526.0" style="-fx-background-color: #164A6A; -fx-padding: 24; -fx-spacing: 16;">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
                      <children>
