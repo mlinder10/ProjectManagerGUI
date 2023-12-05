@@ -5,17 +5,26 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import models.Project;
 import models.ProjectFACADE;
-import models.Task;
+import utils.SceneBuilder;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 public class DashboardController implements Initializable {
     private ProjectFACADE facade;
+
+    @FXML
+    private StackPane stack;
+
+    @FXML
+    private Button createBtn;
 
     @FXML
     private HBox ownerHbox;
@@ -29,22 +38,15 @@ public class DashboardController implements Initializable {
     @FXML
     private VBox sidenavProjects;
 
-    private void populateSidenav() {
-        ArrayList<Task> tasks = facade.getUserTasks();
-        ArrayList<Project> projects = facade.getUserProjects();
-        for (Task task : tasks) {
-            Button title = new Button(task.title);
-            sidenavTasks.getChildren().add(title);
-        }
-        for (Project project : projects) {
-            Button title = new Button(project.title);
-            sidenavProjects.getChildren().add(title);
-        }
-    }
-
-    private void createProjects() {
+    private void populateProjects() {
         ArrayList<Project> owned = facade.getOwnerProjects();
         ArrayList<Project> member = facade.getMemberProjects();
+        for (int i=0; i<ownerHbox.getChildren().size(); i++) {
+            ownerHbox.getChildren().remove(i);
+        }
+        for (int i=0; i<memberHbox.getChildren().size(); i++) {
+            memberHbox.getChildren().remove(i);
+        }
         for (Project project : owned) {
             VBox projectContainer = new VBox();
             Button title = new Button(project.title);
@@ -61,11 +63,35 @@ public class DashboardController implements Initializable {
         }
     }
 
+    private void handleCreateBtnClick() {
+        createBtn.setOnMouseClicked(event -> {
+            System.out.println("Button clicked");
+            VBox modal = new VBox();
+            VBox modalInternal = new VBox();
+            Button cancel = new Button("Cancel");
+            cancel.setOnMouseClicked(event2 -> {
+                stack.getChildren().remove(modal);
+            });
+            Label title = new Label("Create Project");
+            TextField input = new TextField("Project title");
+            Button create = new Button("Create");
+            create.setOnMouseClicked(event3 -> {
+                facade.createProject(input.getText());
+                populateProjects();
+                stack.getChildren().remove(modal);
+            });
+            modalInternal.getChildren().addAll(cancel, title, input, create);
+            modal.getChildren().add(modalInternal);
+            stack.getChildren().add(modal);
+        });
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         facade = ProjectFACADE.getInstance();
-        populateSidenav();
-        createProjects();
+        SceneBuilder.populateNavbar(facade, sidenavProjects, sidenavProjects);
+        populateProjects();
+        handleCreateBtnClick();
     }
 
 }
