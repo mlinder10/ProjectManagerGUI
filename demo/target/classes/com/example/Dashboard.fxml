@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashboardController">
    <children>
       <VBox prefHeight="400.0" prefWidth="193.0" style="-fx-background-color: #37B5BA; -fx-padding: 12; -fx-spacing: 8;">
          <children>
@@ -56,8 +56,8 @@
                   <Label text="Owner" />
                   <ScrollPane prefHeight="200.0" prefWidth="200.0">
                      <content>
-                        <HBox prefHeight="120.0" style="-fx-spacing: 32;">
-                           <children>
+                        <HBox fx:id="ownerHbox" prefHeight="120.0" style="-fx-spacing: 32;">
+                           <!-- <children>
                               <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
                                  <children>
                                     <Button fx:id= "Project1" mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 1" />
@@ -70,7 +70,8 @@
                                     <ProgressBar prefWidth="200.0" progress="0.0" />
                                  </children>
                               </VBox>
-                           </children></HBox>
+                           </children> -->
+                        </HBox>
                      </content>
                   </ScrollPane>
                </children>
@@ -80,15 +81,16 @@
                   <Label text="Member" />
                   <ScrollPane prefHeight="200.0" prefWidth="200.0">
                      <content>
-                        <HBox prefHeight="120.0" style="-fx-spacing: 32;">
-                           <children>
+                        <HBox fx:id="memberHbox" prefHeight="120.0" style="-fx-spacing: 32;">
+                           <!-- <children>
                               <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
                                  <children>
                                     <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project 3" />
                                     <ProgressBar prefWidth="200.0" progress="0.0" />
                                  </children>
                               </VBox>
-                           </children></HBox>
+                           </children> -->
+                        </HBox>
                      </content>
                   </ScrollPane>
                </children>

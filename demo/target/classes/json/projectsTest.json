@@ -19,7 +19,7 @@
     ],
     "sections": [
       {
-        "title": "DOING",
+        "title": "Doing",
         "tasks": [
           {
             "completion": false,
@@ -85,11 +85,11 @@
         ]
       },
       {
-        "title": "TODO",
+        "title": "Todo",
         "tasks": []
       },
       {
-        "title": "DONE",
+        "title": "Done",
         "tasks": []
       }
     ]
@@ -107,15 +107,15 @@
     "users": [],
     "sections": [
       {
-        "title": "DOING",
+        "title": "Doing",
         "tasks": []
       },
       {
-        "title": "TODO",
+        "title": "Todo",
         "tasks": []
       },
       {
-        "title": "DONE",
+        "title": "Done",
         "tasks": []
       }
     ]
@@ -133,15 +133,15 @@
     "users": [],
     "sections": [
       {
-        "title": "DOING",
+        "title": "Doing",
         "tasks": []
       },
       {
-        "title": "TODO",
+        "title": "Todo",
         "tasks": []
       },
       {
-        "title": "DONE",
+        "title": "Done",
         "tasks": []
       }
     ]

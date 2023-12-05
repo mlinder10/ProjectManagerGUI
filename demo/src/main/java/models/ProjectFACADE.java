@@ -1,5 +1,7 @@
 package models;
 
+import java.util.ArrayList;
+
 import utils.DataWriter;
 
 /**
@@ -35,6 +37,10 @@ public class ProjectFACADE {
      */
     public Project getCurrentProject() {
         return projectList.currentProject;
+    }
+
+    public ArrayList<Project> getAllProjects() {
+        return projectList.projects;
     }
 
     /**
