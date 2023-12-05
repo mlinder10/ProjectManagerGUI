@@ -138,5 +138,22 @@
       { "title": "Doing", "tasks": [] },
       { "title": "Done", "tasks": [] }
     ]
+  },
+  {
+    "owner": {
+      "password": "password",
+      "id": "f1e3e520-b319-4b91-aa06-9434f41b3ef6",
+      "email": "amadden@gmail.com",
+      "username": "atticusmadden"
+    },
+    "comments": [],
+    "id": "aaf3fe36-caec-4055-90a1-07087774dfc8",
+    "title": "Project title",
+    "users": [],
+    "sections": [
+      { "title": "Todo", "tasks": [] },
+      { "title": "Doing", "tasks": [] },
+      { "title": "Done", "tasks": [] }
+    ]
   }
 ]
