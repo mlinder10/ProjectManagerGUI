@@ -50,6 +50,8 @@ public class TaskController implements Initializable {
             VBox userContainer = new VBox();
             Label username = new Label(user.username);
             Label email = new Label(user.email);
+            email.setStyle("-fx-font-size: 12;");
+            userContainer.setStyle("-fx-background-color: #249296aa; -fx-background-radius: 10; -fx-padding: 8;");
             userContainer.getChildren().addAll(username, email);
             userList.getChildren().add(userContainer);
         }

@@ -46,7 +46,7 @@
             </HBox>
             <ScrollPane style="-fx-background: transparent; -fx-background-color: #164A6A; -fx-vbar-policy: never; -fx-hbar-policy: never;">
                <content>
-                  <HBox fx:id="sectionBox" prefHeight="202.0" prefWidth="464.0" />
+                  <HBox fx:id="sectionBox" prefHeight="202.0" prefWidth="464.0" style="-fx-spacing: 32; -fx-padding: 0 0 0 24" />
                </content>
             </ScrollPane>
             <HBox prefHeight="74.0" prefWidth="484.0" style="-fx-background-color: #f2c53d; -fx-alignment: center;">
