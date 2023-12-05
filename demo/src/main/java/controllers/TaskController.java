@@ -5,8 +5,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import com.example.App;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -19,6 +22,9 @@ import utils.SceneBuilder;
 public class TaskController implements Initializable {
     private ProjectFACADE facade;
     private Task task;
+
+    @FXML
+    Button dashboardBtn;
 
     @FXML
     VBox sidenavTasks;
@@ -55,6 +61,13 @@ public class TaskController implements Initializable {
         facade = ProjectFACADE.getInstance();
         task = facade.getCurrentTask();
         SceneBuilder.populateNavbar(facade, sidenavProjects, sidenavTasks);
+        dashboardBtn.setOnMouseClicked(event -> {
+            try {
+                App.setRoot("Dashboard");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
         populateTask();
         populateAssignedUsers();
     }

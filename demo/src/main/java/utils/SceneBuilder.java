@@ -16,6 +16,7 @@ public class SceneBuilder {
         ArrayList<Project> projects = facade.getUserProjects();
         for (Task task : tasks) {
             Button title = new Button(task.title);
+            title.setStyle("-fx-background-color: inherit; -fx-text-fill: white;");
             title.setOnMouseClicked(event -> {
                 facade.openTask(task);
                 try {
@@ -28,6 +29,7 @@ public class SceneBuilder {
         }
         for (Project project : projects) {
             Button title = new Button(project.title);
+            title.setStyle("-fx-background-color: inherit; -fx-text-fill: white;");
             title.setOnMouseClicked(event -> {
                 facade.openProject(project);
                 try {

@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -20,14 +19,14 @@
          <children>
             <Button fx:id="dashboardBtn" mnemonicParsing="false" style="-fx-background-color: inherit; -fx-padding: 0;" text="Dashboard" textFill="WHITE" />
             <Label text="Projects" textFill="WHITE" />
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #37B5BA;">
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #37B5BA; -fx-background: transparent;">
                <content>
                   <VBox fx:id="sidenavProjects" prefHeight="141.0" prefWidth="99.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #37B5BA;">
                   </VBox>
                </content>
             </ScrollPane>
             <Label style="-fx-background-color: #37B5BA;" text="Tasks" textFill="WHITE" />
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #37B5BA;">
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #37B5BA; -fx-background: transparent;">
                <content>
                   <VBox fx:id="sidenavTasks" prefHeight="144.0" prefWidth="99.0" style="-fx-padding: 8; -fx-spacing: 8; -fx-background-color: #37B5BA;">
                   </VBox>
@@ -35,9 +34,9 @@
             </ScrollPane>
          </children>
       </VBox>
-      <VBox prefHeight="400.0" prefWidth="300.0" style="-fx-padding: 24; -fx-spacing: 16; -fx-background-color: #164A6A;">
+      <VBox prefHeight="400.0" prefWidth="346.0" style="-fx-spacing: 16; -fx-background-color: #164A6A;">
          <children>
-            <VBox prefHeight="49.0" prefWidth="65.0">
+            <VBox prefHeight="49.0" prefWidth="65.0" style="-fx-padding: 24;">
                <children>
                   <Label fx:id="title" prefHeight="35.0" prefWidth="257.0" text="Task 1 - New Feature" textFill="WHITE">
                      <font>
@@ -47,24 +46,35 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2c53d" height="13.0" stroke="BLACK" strokeType="INSIDE" width="68.0" />
                </children>
             </VBox>
-            <Text fx:id="description" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="284.80334854125977">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <Pane prefHeight="60.0" prefWidth="255.0" scaleX="1.164" style="-fx-background-color: #F2C53D;" translateY="67.0">
+            <VBox prefHeight="221.0" prefWidth="316.0">
                <children>
-                  <Label accessibleRole="BUTTON" layoutX="92.0" layoutY="22.0" text="Comments (10) -&gt;" textFill="WHITE" />
+                  <Text fx:id="description" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="284.80334854125977">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
                </children>
-            </Pane>
+            </VBox>
+            <VBox prefHeight="69.0" prefWidth="300.0" style="-fx-background-color: #f2c53d; -fx-alignment: center;">
+               <children>
+                  <Button mnemonicParsing="false" style="-fx-background-color: inherit;" text="Button" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
          </children>
       </VBox>
-      <VBox prefHeight="400.0" prefWidth="139.0" style="-fx-alignment: center; -fx-padding: 12; -fx-spacing: 12;">
+      <VBox prefHeight="400.0" prefWidth="126.0" style="-fx-alignment: center; -fx-padding: 12; -fx-spacing: 12; -fx-background-color: #37B5BA;">
          <children>
-            <Label text="Assigned Users" />
-            <ScrollPane prefHeight="385.0" prefWidth="121.0">
+            <Label prefHeight="53.0" prefWidth="102.0" text="Assigned Users" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <ScrollPane prefHeight="321.0" prefWidth="102.0" style="-fx-background: transparent; -fx-background-color: #37B5BA;">
                <content>
-                  <VBox fx:id="userList" prefHeight="328.0" prefWidth="109.0" />
+                  <VBox fx:id="userList" prefHeight="287.0" prefWidth="97.0" />
                </content>
             </ScrollPane>
          </children>

@@ -141,6 +141,8 @@ public class Project {
                 break;
             }
         }
+        if (totalTasks == 0)
+            return 0;
         return (double) completedTasks / totalTasks;
     }
 }
