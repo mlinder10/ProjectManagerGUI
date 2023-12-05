@@ -112,5 +112,4 @@ public class DashboardController implements Initializable {
         populateProjects();
         handleCreateBtnClick();
     }
-
 }
