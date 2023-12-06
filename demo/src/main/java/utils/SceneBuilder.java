@@ -3,7 +3,9 @@ package utils;
 import com.example.App;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -13,12 +15,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import models.Comment;
 import models.Project;
 import models.ProjectFACADE;
 import models.Section;
 import models.Task;
 
 public class SceneBuilder {
+    static DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.getDefault());
+
     public static void populateNavbar(ProjectFACADE facade, VBox projectBox, VBox taskBox) {
         ArrayList<Task> tasks = facade.getUserTasks();
         ArrayList<Project> projects = facade.getUserProjects();
@@ -120,7 +125,7 @@ public class SceneBuilder {
             create.setOnMouseClicked(event3 -> {
                 Task task = facade.createTask(section, titleInput.getText(), descriptionInput.getText(),
                         Integer.parseInt(priorityInput.getText()), titleInput.getText());
-                container.getChildren().add(createTask(facade, task));    
+                container.getChildren().add(createTask(facade, task));
                 stack.getChildren().remove(modal);
             });
 
@@ -152,5 +157,67 @@ public class SceneBuilder {
             }
         });
         return taskBtn;
+    }
+
+    public static VBox createComment(Comment comment, StackPane stack, ProjectFACADE facade) {
+        VBox container = new VBox();
+        container.setStyle("-fx-spacing: 4;");
+        HBox upper = new HBox();
+        upper.setStyle("-fx-spacing: 16;");
+        Label username = new Label(comment.user.username);
+        username.setStyle("-fx-font-weight: bold; -fx-font-size: 14;");
+        Label date = new Label(dateFormatter.format(comment.date));
+        date.setStyle("-fx-text-fill: #ddd;");
+        upper.getChildren().addAll(username, date);
+        container.getChildren().add(upper);
+        container.getChildren().add(new Label(comment.content));
+        Button reply = new Button("Reply ->");
+        reply.setStyle("-fx-background-color: inherit; -fx-text-fill: #f2c53d; -fx-padding: 0;");
+        VBox nestedContainer = new VBox();
+        nestedContainer.setStyle("-fx-padding: 8 0 0 24;");
+
+        reply.setOnMouseClicked(event -> {
+            VBox modal = new VBox();
+            modal.setAlignment(Pos.CENTER);
+            modal.setStyle("-fx-background-color: #000a;");
+            VBox modalInternal = new VBox();
+            modalInternal.setStyle(
+                    "-fx-alignment: center; -fx-spacing: 8; -fx-background-color: #249296aa; -fx-background-radius: 30; -fx-padding: 8;");
+            modalInternal.setMaxWidth(260);
+            modalInternal.setPrefWidth(300);
+            modalInternal.setPrefHeight(200);
+            Label inputTitle = new Label("Create Comment");
+            inputTitle.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;");
+
+            TextField contentInput = new TextField();
+            contentInput.setPromptText("Comment Content");
+            contentInput.setMaxWidth(200);
+            HBox buttons = new HBox();
+            buttons.setStyle("-fx-spacing: 8; -fx-alignment: center;");
+            Button cancel = new Button("Cancel");
+            cancel.setOnMouseClicked(event2 -> {
+                stack.getChildren().remove(modal);
+            });
+            Button create = new Button("Create");
+            create.setOnMouseClicked(event3 -> {
+                Comment newComment = facade.createComment(comment, contentInput.getText());
+                nestedContainer.getChildren().add(createComment(newComment, stack, facade));
+                stack.getChildren().remove(modal);
+            });
+
+            buttons.getChildren().addAll(cancel, create);
+            modalInternal.getChildren().addAll(inputTitle, contentInput, buttons);
+            modal.getChildren().add(modalInternal);
+            stack.getChildren().add(modal);
+        });
+        container.getChildren().add(reply);
+
+        if (comment.comments.size() == 0)
+            return container;
+        for (Comment commentRecursive : comment.comments) {
+            nestedContainer.getChildren().add(createComment(commentRecursive, stack, facade));
+        }
+        container.getChildren().add(nestedContainer);
+        return container;
     }
 }

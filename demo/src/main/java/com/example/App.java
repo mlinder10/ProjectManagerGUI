@@ -22,7 +22,7 @@ public class App extends Application {
 
 
         // For Development Testing
-        ProjectFACADE.getInstance().login("atticusmadden", "password");
+        ProjectFACADE.getInstance().login("matt", "password");
         scene = new Scene(loadFXML("Dashboard"), 600, 400);
 
 

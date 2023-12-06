@@ -108,6 +108,13 @@ public class ProjectController implements Initializable {
         populateSections();
         title.setText(project.title);
         commentsBtn.setText("Comments (" + project.getCommentsSize() + ")");
+        commentsBtn.setOnMouseClicked(event -> {
+            try {
+                App.setRoot("Comments");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
         handleCreateBtnClick();
     }
 

@@ -78,10 +78,14 @@ public class ProjectFACADE {
     }
 
     public void openProject(Project project) {
+        projectList.currentProject = null;
+        projectList.currentTask = null;
         projectList.currentProject = project;
     }
 
     public void openTask(Task task) {
+        projectList.currentProject = null;
+        projectList.currentTask = null;
         projectList.currentTask = task;
     }
 
@@ -300,8 +304,8 @@ public class ProjectFACADE {
      * @param user
      * @return CreateCommentStatus
      */
-    public boolean createComment(Project project, String content, User user) {
-        return project.createComment(new Comment(content, user));
+    public boolean createComment(Project project, String content) {
+        return project.createComment(new Comment(content, userList.user));
     }
 
     /**
@@ -323,8 +327,11 @@ public class ProjectFACADE {
      * @param content
      * @return CreateCommentStatus
      */
-    public boolean createComment(Comment comment, String content) {
-        return comment.createComment(new Comment(content, userList.user));
+    public Comment createComment(Comment comment, String content) {
+        Comment newComment = new Comment(content, userList.user);
+        comment.comments.add(newComment);
+        DataWriter.saveProjects(projectList.projects);
+        return newComment;
     }
 
     /**

@@ -77,6 +77,13 @@ public class TaskController implements Initializable {
             }
         });
         commentsBtn.setText("Comments (" + task.getCommentsSize() + ")");
+        commentsBtn.setOnMouseClicked(event -> {
+            try {
+                App.setRoot("Comments");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
         populateTask();
         populateAssignedUsers();
     }

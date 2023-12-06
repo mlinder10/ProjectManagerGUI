@@ -17,7 +17,7 @@
                <children>
                   <Button mnemonicParsing="false" style="-fx-background-color: inherit; -fx-padding: 0;" text="Dashboard" textFill="WHITE" />
                   <Label text="Projects" textFill="WHITE" />
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background: transparent; -fx-background-color: #37B5BA; -fx-hbar-policy: never; -fx-vbar-policy: never;">
+                  <ScrollPane prefHeight="154.0" prefWidth="96.0" style="-fx-background: transparent; -fx-background-color: #37B5BA; -fx-hbar-policy: never; -fx-vbar-policy: never;">
                      <content>
                         <VBox fx:id="sidenavProjects" prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8;">
                         </VBox>
@@ -36,7 +36,7 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center; -fx-padding: 24 24 0 24">
                      <children>
-                        <VBox prefHeight="42.0" prefWidth="315.0">
+                        <VBox prefHeight="42.0" prefWidth="366.0">
                            <children>
                               <Label text="Dashboard" textFill="WHITE">
                                  <font>
@@ -46,7 +46,7 @@
                               <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#f2c53d" height="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="68.0" />
                            </children>
                         </VBox>
-                        <Button fx:id="createBtn" mnemonicParsing="false" style="-fx-background-color: inherit;" text="Create Project" textFill="#f2c53d" />
+                        <Button fx:id="createBtn" mnemonicParsing="false" style="-fx-background-color: inherit;" text="Project +" textFill="#f2c53d" />
                      </children>
                   </HBox>
                   <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-padding: 0 0 0 24; -fx-spacing: 8">
