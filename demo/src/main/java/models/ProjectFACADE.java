@@ -179,6 +179,7 @@ public class ProjectFACADE {
     public Section createSection(String title) {
         Section section = new Section(title);
         projectList.currentProject.sections.add(section);
+        DataWriter.saveProjects(projectList.projects);
         return section;
     }
 
@@ -234,7 +235,9 @@ public class ProjectFACADE {
      * @return If task is created
      */
     public Task createTask(Section section, String title, String description, int priority, String type) {
-        return section.createTask(new Task(title, description, priority, type));
+        Task task = section.createTask(new Task(title, description, priority, type));
+        DataWriter.saveProjects(projectList.projects);
+        return task;
     }
 
     /**

@@ -42,12 +42,8 @@ public class DashboardController implements Initializable {
     private void populateProjects() {
         ArrayList<Project> owned = facade.getOwnerProjects();
         ArrayList<Project> member = facade.getMemberProjects();
-        for (int i = 0; i < ownerHbox.getChildren().size(); i++) {
-            ownerHbox.getChildren().remove(i);
-        }
-        for (int i = 0; i < memberHbox.getChildren().size(); i++) {
-            memberHbox.getChildren().remove(i);
-        }
+        ownerHbox.getChildren().clear();
+        memberHbox.getChildren().clear();
         for (Project project : owned) {
             VBox projectContainer = SceneBuilder.createDashboardProject(facade, project);
             ownerHbox.getChildren().add(projectContainer);
@@ -62,7 +58,7 @@ public class DashboardController implements Initializable {
         createBtn.setOnMouseClicked(event -> {
             VBox modal = new VBox();
             modal.setAlignment(Pos.CENTER);
-            modal.setStyle("-fx-background-color: #000a;;");
+            modal.setStyle("-fx-background-color: #000a;");
             VBox modalInternal = new VBox();
             modalInternal.setStyle("-fx-alignment: center; -fx-spacing: 8; -fx-background-color: #249296aa; -fx-background-radius: 30; -fx-padding: 8;");
             modalInternal.setMaxWidth(260);
@@ -84,6 +80,7 @@ public class DashboardController implements Initializable {
             create.setOnMouseClicked(event3 -> {
                 facade.createProject(input.getText());
                 populateProjects();
+                SceneBuilder.populateNavbar(facade, modal, modalInternal);
                 stack.getChildren().remove(modal);
             });
 

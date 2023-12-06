@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import models.ProjectFACADE;
@@ -21,6 +22,9 @@ import utils.SceneBuilder;
 public class TaskController implements Initializable {
     private ProjectFACADE facade;
     private Task task;
+
+    @FXML
+    StackPane stack;
 
     @FXML
     Button dashboardBtn;
@@ -39,6 +43,9 @@ public class TaskController implements Initializable {
 
     @FXML
     VBox userList;
+
+    @FXML
+    Button commentsBtn;
 
     private void populateTask() {
         title.setText(task.title);
@@ -69,6 +76,7 @@ public class TaskController implements Initializable {
                 e.printStackTrace();
             }
         });
+        commentsBtn.setText("Comments (" + task.getCommentsSize() + ")");
         populateTask();
         populateAssignedUsers();
     }

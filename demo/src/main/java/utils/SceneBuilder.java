@@ -5,9 +5,13 @@ import com.example.App;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import models.Project;
 import models.ProjectFACADE;
@@ -18,6 +22,9 @@ public class SceneBuilder {
     public static void populateNavbar(ProjectFACADE facade, VBox projectBox, VBox taskBox) {
         ArrayList<Task> tasks = facade.getUserTasks();
         ArrayList<Project> projects = facade.getUserProjects();
+
+        projectBox.getChildren().clear();
+        taskBox.getChildren().clear();
         for (Task task : tasks) {
             Button title = new Button(task.title);
             title.setStyle("-fx-background-color: inherit; -fx-text-fill: white;");
@@ -48,7 +55,8 @@ public class SceneBuilder {
 
     public static VBox createDashboardProject(ProjectFACADE facade, Project project) {
         VBox container = new VBox();
-        container.setStyle("-fx-alignment: center; -fx-spacing: 4; -fx-background-color: #249296; -fx-background-radius: 10; -fx-padding: 8; -fx-text-wrap: true; -fx-max-width: 120;");
+        container.setStyle(
+                "-fx-alignment: center; -fx-spacing: 4; -fx-background-color: #249296; -fx-background-radius: 10; -fx-padding: 8; -fx-text-wrap: true; -fx-max-width: 120;");
         Button title = new Button(project.title);
         title.setStyle("-fx-background-color: inherit; -fx-text-fill: white;");
         title.setOnMouseClicked(event -> {
@@ -61,31 +69,88 @@ public class SceneBuilder {
         });
         double percentage = project.getPercentage();
         ProgressBar progressBar = new ProgressBar(percentage);
-        Label percentageLabel = new Label((int)(percentage * 100) + "%");
-        container.getChildren().addAll(title, percentageLabel,progressBar);
+        Label percentageLabel = new Label((int) (percentage * 100) + "%");
+        container.getChildren().addAll(title, percentageLabel, progressBar);
         return container;
     }
 
-    public static VBox createProjectSection(ProjectFACADE facade, Section section) {
+    public static VBox createProjectSection(ProjectFACADE facade, Section section, StackPane stack) {
         VBox container = new VBox();
-        container.setStyle("-fx-background-color: #249296; -fx-background-radius: 10; -fx-padding: 8; -fx-min-width: 120;");
+        container.setStyle(
+                "-fx-background-color: #249296; -fx-background-radius: 10; -fx-padding: 8; -fx-min-width: 120;");
+        HBox upper = new HBox();
         Label title = new Label(section.title);
         title.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18; -fx-padding: 0 0 8 0;");
-        container.getChildren().add(title);
-        for (Task task : section.tasks) {
-            Button taskBtn = new Button(task.title);
-            taskBtn.setStyle("-fx-background-color: inherit; -fx-text-fill: white; -fx-padding: 0;");
-            taskBtn.setMaxWidth(100);
-            taskBtn.setOnMouseClicked(event -> {
-                facade.openTask(task);
-                try {
-                    App.setRoot("Task");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        upper.getChildren().add(title);
+        Button addTask = new Button("+ Task");
+        addTask.setStyle("-fx-background-color: inherit; -fx-text-fill: #f2c53d;");
+        addTask.setOnMouseClicked(event -> {
+            VBox modal = new VBox();
+            modal.setAlignment(Pos.CENTER);
+            modal.setStyle("-fx-background-color: #000a;");
+            VBox modalInternal = new VBox();
+            modalInternal.setStyle(
+                    "-fx-alignment: center; -fx-spacing: 8; -fx-background-color: #249296aa; -fx-background-radius: 30; -fx-padding: 8;");
+            modalInternal.setMaxWidth(260);
+            modalInternal.setPrefWidth(300);
+            modalInternal.setPrefHeight(200);
+            Label inputTitle = new Label("Create Task");
+            inputTitle.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;");
+
+            TextField titleInput = new TextField();
+            titleInput.setPromptText("Task Title");
+            titleInput.setMaxWidth(200);
+            TextField descriptionInput = new TextField();
+            descriptionInput.setPromptText("Task Description");
+            descriptionInput.setMaxWidth(200);
+            TextField priorityInput = new TextField();
+            priorityInput.setPromptText("Task Priority (1-3)");
+            priorityInput.setMaxWidth(200);
+            TextField statusInput = new TextField();
+            statusInput.setPromptText("Task Status");
+            statusInput.setMaxWidth(200);
+
+            HBox buttons = new HBox();
+            buttons.setStyle("-fx-spacing: 8; -fx-alignment: center;");
+            Button cancel = new Button("Cancel");
+            cancel.setOnMouseClicked(event2 -> {
+                stack.getChildren().remove(modal);
             });
+            Button create = new Button("Create");
+            create.setOnMouseClicked(event3 -> {
+                Task task = facade.createTask(section, titleInput.getText(), descriptionInput.getText(),
+                        Integer.parseInt(priorityInput.getText()), titleInput.getText());
+                container.getChildren().add(createTask(facade, task));    
+                stack.getChildren().remove(modal);
+            });
+
+            buttons.getChildren().addAll(cancel, create);
+            modalInternal.getChildren().addAll(inputTitle, titleInput, descriptionInput, priorityInput, statusInput,
+                    buttons);
+            modal.getChildren().add(modalInternal);
+            stack.getChildren().add(modal);
+        });
+        upper.getChildren().add(addTask);
+        container.getChildren().add(upper);
+        for (Task task : section.tasks) {
+            Button taskBtn = createTask(facade, task);
             container.getChildren().add(taskBtn);
         }
         return container;
+    }
+
+    public static Button createTask(ProjectFACADE facade, Task task) {
+        Button taskBtn = new Button(task.title);
+        taskBtn.setStyle("-fx-background-color: inherit; -fx-text-fill: white; -fx-padding: 0;");
+        taskBtn.setMaxWidth(100);
+        taskBtn.setOnMouseClicked(event -> {
+            facade.openTask(task);
+            try {
+                App.setRoot("Task");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        return taskBtn;
     }
 }

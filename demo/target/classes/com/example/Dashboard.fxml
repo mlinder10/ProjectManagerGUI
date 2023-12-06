@@ -13,26 +13,26 @@
    <children>
       <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <VBox prefHeight="400.0" prefWidth="193.0" style="-fx-background-color: #37B5BA; -fx-padding: 12; -fx-spacing: 8;">
+            <VBox prefHeight="400.0" prefWidth="120.0" style="-fx-background-color: #37B5BA; -fx-padding: 12; -fx-spacing: 8;">
                <children>
                   <Button mnemonicParsing="false" style="-fx-background-color: inherit; -fx-padding: 0;" text="Dashboard" textFill="WHITE" />
                   <Label text="Projects" textFill="WHITE" />
                   <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background: transparent; -fx-background-color: #37B5BA; -fx-hbar-policy: never; -fx-vbar-policy: never;">
                      <content>
                         <VBox fx:id="sidenavProjects" prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8;">
-                  </VBox>
-                           </content>
-                        </ScrollPane>
-                        <Label text="Tasks" textFill="WHITE" />
-                        <ScrollPane prefHeight="147.0" prefWidth="95.0" style="-fx-background-color: #37B5BA; -fx-background: transparent; -fx-hbar-policy: never; -fx-vbar-policy: never;">
-                           <content>
-                              <VBox fx:id="sidenavTasks" prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8;">
-                  </VBox>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <Label text="Tasks" textFill="WHITE" />
+                  <ScrollPane prefHeight="147.0" prefWidth="95.0" style="-fx-background-color: #37B5BA; -fx-background: transparent; -fx-hbar-policy: never; -fx-vbar-policy: never;">
+                     <content>
+                        <VBox fx:id="sidenavTasks" prefWidth="90.0" style="-fx-padding: 8; -fx-spacing: 8;">
+                        </VBox>
                      </content>
                   </ScrollPane>
                </children>
             </VBox>
-            <VBox prefHeight="400.0" prefWidth="526.0" style="-fx-background-color: #164A6A; -fx-spacing: 16;">
+            <VBox prefHeight="400.0" prefWidth="480.0" style="-fx-background-color: #164A6A; -fx-spacing: 16;">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center; -fx-padding: 24 24 0 24">
                      <children>
