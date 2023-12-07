@@ -54,7 +54,7 @@ public class DataWriter extends DataConstants {
         for (User user : users) {
             jsonUsers.add(getUserJson(user));
         }
-        try (FileWriter file = new FileWriter(BASE_URI + "usersTest.json")) {
+        try (FileWriter file = new FileWriter(BASE_URI + USERS_PATH)) {
             file.write(jsonUsers.toJSONString());
             file.flush();
             return true;
@@ -79,7 +79,7 @@ public class DataWriter extends DataConstants {
         for (Project project : projects) {
             jsonProject.add(getProjectJson(project));
         }
-        try (FileWriter file = new FileWriter(BASE_URI + "projectsTest.json")) {
+        try (FileWriter file = new FileWriter(BASE_URI + PROJECTS_PATH)) {
             file.write(jsonProject.toJSONString());
             file.flush();
             return true;

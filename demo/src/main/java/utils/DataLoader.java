@@ -37,7 +37,7 @@ public class DataLoader extends DataConstants {
     public static ArrayList<User> loadUsers() {
         try {
             ArrayList<User> users = new ArrayList<User>();
-            FileReader reader = new FileReader(BASE_URI + "usersProd.json");
+            FileReader reader = new FileReader(BASE_URI + USERS_PATH);
             JSONArray usersJson = (JSONArray) new JSONParser().parse(reader);
 
             for (int i = 0; i < usersJson.size(); i++) {
@@ -64,7 +64,7 @@ public class DataLoader extends DataConstants {
     public static ArrayList<Project> loadProjects() {
         try {
             ArrayList<Project> projects = new ArrayList<Project>();
-            FileReader reader = new FileReader(BASE_URI + "projectsProd.json");
+            FileReader reader = new FileReader(BASE_URI + PROJECTS_PATH);
             JSONArray projectsJson = (JSONArray) new JSONParser().parse(reader);
 
             for (int projectIndex = 0; projectIndex < projectsJson.size(); projectIndex++) {
