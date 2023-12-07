@@ -141,6 +141,24 @@ public class Project {
                 break;
             }
         }
+        if (totalTasks == 0)
+            return 0;
         return (double) completedTasks / totalTasks;
+    }
+
+    public int getCommentsSize() {
+        int size = 0;
+        for (Comment comment : comments) {
+            size += getCommentsSize(comment);
+        }
+        return size;
+    }
+
+    private int getCommentsSize(Comment comment) {
+        int size = 1;
+        for (Comment commentRecursive : comment.comments) {
+            size += getCommentsSize(commentRecursive);
+        }
+        return size;
     }
 }

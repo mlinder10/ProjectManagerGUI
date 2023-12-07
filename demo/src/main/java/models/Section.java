@@ -41,7 +41,6 @@ public class Section {
      */
     public Task createTask(Task task) {
         this.tasks.add(task);
-        DataWriter.saveProjects(ProjectList.getProjectList().projects);
         return task;
     }
 

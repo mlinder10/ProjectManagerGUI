@@ -1,6 +1,5 @@
 package models;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import utils.DataWriter;
@@ -79,10 +78,14 @@ public class ProjectFACADE {
     }
 
     public void openProject(Project project) {
+        projectList.currentProject = null;
+        projectList.currentTask = null;
         projectList.currentProject = project;
     }
 
     public void openTask(Task task) {
+        projectList.currentProject = null;
+        projectList.currentTask = null;
         projectList.currentTask = task;
     }
 
@@ -92,6 +95,10 @@ public class ProjectFACADE {
 
     public Task getCurrentTask() {
         return projectList.currentTask;
+    }
+
+    public Project getCurrentProject() {
+        return projectList.currentProject;
     }
 
     /**
@@ -176,6 +183,7 @@ public class ProjectFACADE {
     public Section createSection(String title) {
         Section section = new Section(title);
         projectList.currentProject.sections.add(section);
+        DataWriter.saveProjects(projectList.projects);
         return section;
     }
 
@@ -231,7 +239,9 @@ public class ProjectFACADE {
      * @return If task is created
      */
     public Task createTask(Section section, String title, String description, int priority, String type) {
-        return section.createTask(new Task(title, description, priority, type));
+        Task task = section.createTask(new Task(title, description, priority, type));
+        DataWriter.saveProjects(projectList.projects);
+        return task;
     }
 
     /**
@@ -294,8 +304,8 @@ public class ProjectFACADE {
      * @param user
      * @return CreateCommentStatus
      */
-    public boolean createComment(Project project, String content, User user) {
-        return project.createComment(new Comment(content, user));
+    public boolean createComment(Project project, String content) {
+        return project.createComment(new Comment(content, userList.user));
     }
 
     /**
@@ -317,8 +327,11 @@ public class ProjectFACADE {
      * @param content
      * @return CreateCommentStatus
      */
-    public boolean createComment(Comment comment, String content) {
-        return comment.createComment(new Comment(content, userList.user));
+    public Comment createComment(Comment comment, String content) {
+        Comment newComment = new Comment(content, userList.user);
+        comment.comments.add(newComment);
+        DataWriter.saveProjects(projectList.projects);
+        return newComment;
     }
 
     /**
@@ -415,18 +428,27 @@ public class ProjectFACADE {
     public Task moveTask(Task targetTask, String sectionTitle) {
         Section removeSection = null;
         Section addSection = null;
+        int removeIndex = -1;
         for (Section section : projectList.currentProject.sections) {
             if (section.title.equals(sectionTitle)) {
                 addSection = section;
             }
-            for (Task task : section.tasks) {
-                if (task.id.equals(targetTask.id)) {
+            for (int i=0; i<section.tasks.size(); i++) {
+                if (section.tasks.get(i).id.equals(targetTask.id)) {
                     removeSection = section;
+                    removeIndex = i;
+                    break;
                 }
             }
         }
-        removeSection.tasks.remove(targetTask);
-        return addSection.createTask(targetTask);
+
+        if (removeIndex == -1) {
+            return null;
+        }
+        removeSection.tasks.remove(removeIndex);
+        addSection.createTask(targetTask);
+        DataWriter.saveProjects(projectList.projects);
+        return targetTask;
     }
 
     public User getUser() {

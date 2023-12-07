@@ -119,4 +119,20 @@ public class Task {
         DataWriter.saveProjects(ProjectList.getProjectList().projects);
         return true;
     }
+
+    public int getCommentsSize() {
+        int size = 0;
+        for (Comment comment : this.comments) {
+            size += getCommentsSize(comment);
+        }
+        return size;
+    }
+
+    private int getCommentsSize(Comment comment) {
+        int size = 1;
+        for (Comment commentRecursive : comment.comments) {
+            size += getCommentsSize(commentRecursive);
+        }
+        return size;
+    }
 }
