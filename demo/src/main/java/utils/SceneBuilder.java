@@ -11,22 +11,17 @@ import java.util.Locale;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.DataFormat;
-import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import models.Comment;
 import models.Project;
 import models.ProjectFACADE;
@@ -181,16 +176,27 @@ public class SceneBuilder {
                 event.consume();
             });
 
-            // container.setOnDragEntered(event -> {
-            // /* the drag-and-drop gesture entered the target */
-            // /* show to the user that it is an actual gesture target */
-            // if (event.getGestureSource() != container &&
-            // event.getDragboard().hasString()) {
-            // container.setStyle("-fx-background-color: #fff;");
-            // }
+            container.setOnDragEntered(event -> {
+                /* the drag-and-drop gesture entered the target */
+                /* show to the user that it is an actual gesture target */
+                if (event.getGestureSource() != container &&
+                        event.getDragboard().hasString()) {
+                    container.setStyle("-fx-background-color: #148286; -fx-background-radius: 10; -fx-padding: 8; -fx-min-width: 120;");
+                }
 
-            // event.consume();
-            // });
+                event.consume();
+            });
+
+            container.setOnDragExited(event -> {
+                /* the drag-and-drop gesture entered the target */
+                /* show to the user that it is an actual gesture target */
+                if (event.getGestureSource() != container &&
+                        event.getDragboard().hasString()) {
+                    container.setStyle("-fx-background-color: #249296; -fx-background-radius: 10; -fx-padding: 8; -fx-min-width: 120;");
+                }
+
+                event.consume();
+            });
 
             root.getChildren().add(container);
         }
