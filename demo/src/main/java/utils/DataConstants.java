@@ -5,6 +5,8 @@ package utils;
  */
 public class DataConstants {
     protected static final String BASE_URI = "./demo/src/main/java/json/";
+    protected static final String USERS_PATH = "usersProd.json";
+    protected static final String PROJECTS_PATH = "projectsProd.json";
     // users
     protected static final String USER_ID = "id";
     protected static final String USER_USERNAME = "username";

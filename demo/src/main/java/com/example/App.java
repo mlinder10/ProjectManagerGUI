@@ -20,13 +20,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         stage.setTitle("Project Manager");
 
-
-        // For Development Testing
-        ProjectFACADE.getInstance().login("matt", "password");
-        scene = new Scene(loadFXML("Dashboard"), 600, 400);
-
-
-        // scene = new Scene(loadFXML("Login"), 600, 400);
+        scene = new Scene(loadFXML("Login"), 600, 400);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
