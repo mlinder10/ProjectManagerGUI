@@ -17,7 +17,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import models.Project;
 import models.ProjectFACADE;
-import models.Section;
 import utils.SceneBuilder;
 
 public class ProjectController implements Initializable {
@@ -48,14 +47,6 @@ public class ProjectController implements Initializable {
     @FXML
     private VBox sidenavTasks;
 
-    private void populateSections() {
-        sectionBox.getChildren().clear();
-        for (Section section : project.sections) {
-            VBox sectionContainer = SceneBuilder.createProjectSection(facade, section, stack);
-            sectionBox.getChildren().add(sectionContainer);
-        }
-    }
-
     private void handleCreateBtnClick() {
         createBtn.setOnMouseClicked(event -> {
             VBox modal = new VBox();
@@ -81,7 +72,7 @@ public class ProjectController implements Initializable {
             Button create = new Button("Create");
             create.setOnMouseClicked(event3 -> {
                 facade.createSection(input.getText());
-                populateSections();
+                SceneBuilder.populateSections(facade, project.sections, stack, sectionBox);
                 SceneBuilder.populateNavbar(facade, modal, modalInernal);
                 stack.getChildren().remove(modal);
             });
@@ -105,7 +96,7 @@ public class ProjectController implements Initializable {
                 e.printStackTrace();
             }
         });
-        populateSections();
+        SceneBuilder.populateSections(facade, project.sections, stack, sectionBox);
         title.setText(project.title);
         commentsBtn.setText("Comments (" + project.getCommentsSize() + ")");
         commentsBtn.setOnMouseClicked(event -> {

@@ -4,17 +4,29 @@ import com.example.App;
 
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DataFormat;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import models.Comment;
 import models.Project;
 import models.ProjectFACADE;
@@ -79,69 +91,109 @@ public class SceneBuilder {
         return container;
     }
 
-    public static VBox createProjectSection(ProjectFACADE facade, Section section, StackPane stack) {
-        VBox container = new VBox();
-        container.setStyle(
-                "-fx-background-color: #249296; -fx-background-radius: 10; -fx-padding: 8; -fx-min-width: 120;");
-        HBox upper = new HBox();
-        Label title = new Label(section.title);
-        title.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18; -fx-padding: 0 0 8 0;");
-        upper.getChildren().add(title);
-        Button addTask = new Button("+ Task");
-        addTask.setStyle("-fx-background-color: inherit; -fx-text-fill: #f2c53d;");
-        addTask.setOnMouseClicked(event -> {
-            VBox modal = new VBox();
-            modal.setAlignment(Pos.CENTER);
-            modal.setStyle("-fx-background-color: #000a;");
-            VBox modalInternal = new VBox();
-            modalInternal.setStyle(
-                    "-fx-alignment: center; -fx-spacing: 8; -fx-background-color: #249296aa; -fx-background-radius: 30; -fx-padding: 8;");
-            modalInternal.setMaxWidth(260);
-            modalInternal.setPrefWidth(300);
-            modalInternal.setPrefHeight(200);
-            Label inputTitle = new Label("Create Task");
-            inputTitle.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;");
+    public static void populateSections(ProjectFACADE facade, ArrayList<Section> sections, StackPane stack, HBox root) {
+        root.getChildren().clear();
+        for (Section section : sections) {
+            VBox container = new VBox();
+            container.setStyle(
+                    "-fx-background-color: #249296; -fx-background-radius: 10; -fx-padding: 8; -fx-min-width: 120;");
+            HBox upper = new HBox();
+            Label title = new Label(section.title);
+            title.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18; -fx-padding: 0 0 8 0;");
+            upper.getChildren().add(title);
+            Button addTask = new Button("+ Task");
+            addTask.setStyle("-fx-background-color: inherit; -fx-text-fill: #f2c53d;");
+            addTask.setOnMouseClicked(event -> {
+                VBox modal = new VBox();
+                modal.setAlignment(Pos.CENTER);
+                modal.setStyle("-fx-background-color: #000a;");
+                VBox modalInternal = new VBox();
+                modalInternal.setStyle(
+                        "-fx-alignment: center; -fx-spacing: 8; -fx-background-color: #249296aa; -fx-background-radius: 30; -fx-padding: 8;");
+                modalInternal.setMaxWidth(260);
+                modalInternal.setPrefWidth(300);
+                modalInternal.setPrefHeight(200);
+                Label inputTitle = new Label("Create Task");
+                inputTitle.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18;");
 
-            TextField titleInput = new TextField();
-            titleInput.setPromptText("Task Title");
-            titleInput.setMaxWidth(200);
-            TextField descriptionInput = new TextField();
-            descriptionInput.setPromptText("Task Description");
-            descriptionInput.setMaxWidth(200);
-            TextField priorityInput = new TextField();
-            priorityInput.setPromptText("Task Priority (1-3)");
-            priorityInput.setMaxWidth(200);
-            TextField statusInput = new TextField();
-            statusInput.setPromptText("Task Status");
-            statusInput.setMaxWidth(200);
+                TextField titleInput = new TextField();
+                titleInput.setPromptText("Task Title");
+                titleInput.setMaxWidth(200);
+                TextField descriptionInput = new TextField();
+                descriptionInput.setPromptText("Task Description");
+                descriptionInput.setMaxWidth(200);
+                TextField priorityInput = new TextField();
+                priorityInput.setPromptText("Task Priority (1-3)");
+                priorityInput.setMaxWidth(200);
+                TextField statusInput = new TextField();
+                statusInput.setPromptText("Task Status");
+                statusInput.setMaxWidth(200);
 
-            HBox buttons = new HBox();
-            buttons.setStyle("-fx-spacing: 8; -fx-alignment: center;");
-            Button cancel = new Button("Cancel");
-            cancel.setOnMouseClicked(event2 -> {
-                stack.getChildren().remove(modal);
+                HBox buttons = new HBox();
+                buttons.setStyle("-fx-spacing: 8; -fx-alignment: center;");
+                Button cancel = new Button("Cancel");
+                cancel.setOnMouseClicked(event2 -> {
+                    stack.getChildren().remove(modal);
+                });
+                Button create = new Button("Create");
+                create.setOnMouseClicked(event3 -> {
+                    Task task = facade.createTask(section, titleInput.getText(), descriptionInput.getText(),
+                            Integer.parseInt(priorityInput.getText()), titleInput.getText());
+                    container.getChildren().add(createTask(facade, task));
+                    stack.getChildren().remove(modal);
+                });
+
+                buttons.getChildren().addAll(cancel, create);
+                modalInternal.getChildren().addAll(inputTitle, titleInput, descriptionInput, priorityInput, statusInput,
+                        buttons);
+                modal.getChildren().add(modalInternal);
+                stack.getChildren().add(modal);
             });
-            Button create = new Button("Create");
-            create.setOnMouseClicked(event3 -> {
-                Task task = facade.createTask(section, titleInput.getText(), descriptionInput.getText(),
-                        Integer.parseInt(priorityInput.getText()), titleInput.getText());
-                container.getChildren().add(createTask(facade, task));
-                stack.getChildren().remove(modal);
+            upper.getChildren().add(addTask);
+            container.getChildren().add(upper);
+            for (Task task : section.tasks) {
+                Button taskBtn = createTask(facade, task);
+                container.getChildren().add(taskBtn);
+            }
+
+            container.setOnDragOver(event -> {
+                if (event.getGestureSource() != container &&
+                        event.getDragboard().hasString()) {
+                    event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+                }
+                event.consume();
             });
 
-            buttons.getChildren().addAll(cancel, create);
-            modalInternal.getChildren().addAll(inputTitle, titleInput, descriptionInput, priorityInput, statusInput,
-                    buttons);
-            modal.getChildren().add(modalInternal);
-            stack.getChildren().add(modal);
-        });
-        upper.getChildren().add(addTask);
-        container.getChildren().add(upper);
-        for (Task task : section.tasks) {
-            Button taskBtn = createTask(facade, task);
-            container.getChildren().add(taskBtn);
+            container.setOnDragDropped(event -> {
+                Dragboard db = event.getDragboard();
+                boolean success = false;
+                if (db.hasString()) {
+                    try {
+                        Task task = DataLoader.parseTask((JSONObject) JSONValue.parse(db.getString()));
+                        facade.moveTask(task, section.title);
+                        populateSections(facade, sections, stack, root);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    success = true;
+                }
+                event.setDropCompleted(success);
+                event.consume();
+            });
+
+            // container.setOnDragEntered(event -> {
+            // /* the drag-and-drop gesture entered the target */
+            // /* show to the user that it is an actual gesture target */
+            // if (event.getGestureSource() != container &&
+            // event.getDragboard().hasString()) {
+            // container.setStyle("-fx-background-color: #fff;");
+            // }
+
+            // event.consume();
+            // });
+
+            root.getChildren().add(container);
         }
-        return container;
     }
 
     public static Button createTask(ProjectFACADE facade, Task task) {
@@ -155,6 +207,13 @@ public class SceneBuilder {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        });
+        taskBtn.setOnDragDetected(event -> {
+            Dragboard db = taskBtn.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent content = new ClipboardContent();
+            content.putString(DataWriter.getTaskJson(task).toJSONString());
+            db.setContent(content);
+            event.consume();
         });
         return taskBtn;
     }

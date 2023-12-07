@@ -428,18 +428,27 @@ public class ProjectFACADE {
     public Task moveTask(Task targetTask, String sectionTitle) {
         Section removeSection = null;
         Section addSection = null;
+        int removeIndex = -1;
         for (Section section : projectList.currentProject.sections) {
             if (section.title.equals(sectionTitle)) {
                 addSection = section;
             }
-            for (Task task : section.tasks) {
-                if (task.id.equals(targetTask.id)) {
+            for (int i=0; i<section.tasks.size(); i++) {
+                if (section.tasks.get(i).id.equals(targetTask.id)) {
                     removeSection = section;
+                    removeIndex = i;
+                    break;
                 }
             }
         }
-        removeSection.tasks.remove(targetTask);
-        return addSection.createTask(targetTask);
+
+        if (removeIndex == -1) {
+            return null;
+        }
+        removeSection.tasks.remove(removeIndex);
+        addSection.createTask(targetTask);
+        DataWriter.saveProjects(projectList.projects);
+        return targetTask;
     }
 
     public User getUser() {

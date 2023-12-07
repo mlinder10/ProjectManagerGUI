@@ -197,4 +197,27 @@ public class DataLoader extends DataConstants {
         }
         return new Comment(id, content, user, comments, date);
     }
+
+    public static Task parseTask(JSONObject taskJson) throws ParseException {
+        UUID id = UUID.fromString((String) taskJson.get(PROJECT_TASK_ID));
+        String title = (String) taskJson.get(PROJECT_TASK_TITLE);
+        String description = (String) taskJson.get(PROJECT_TASK_DESCRIPTION);
+        String type = (String) taskJson.get(PROJECT_TASK_TYPE);
+        ArrayList<User> assignedUsers = new ArrayList<User>();
+        JSONArray assignedUsersJson = (JSONArray) taskJson.get(PROJECT_TASK_ASSIGNED_USERS);
+        for (int userIndex = 0; userIndex < assignedUsersJson.size(); userIndex++) {
+            JSONObject userJson = (JSONObject) assignedUsersJson.get(userIndex);
+            assignedUsers.add(parseUser(userJson));
+        }
+        boolean completion = (boolean) taskJson.get(PROJECT_TASK_COMPLETION);
+        int priority = (int)(long) taskJson.get(PROJECT_TASK_PRIORITY);
+        JSONArray taskCommentsjson = (JSONArray) taskJson.get(PROJECT_TASK_COMMENTS);
+        ArrayList<Comment> taskComments = new ArrayList<Comment>();
+        for (int commentIndex = 0; commentIndex < taskCommentsjson.size(); commentIndex++) {
+            JSONObject commentJsonRecursive = (JSONObject) taskCommentsjson.get(commentIndex);
+            Comment parsedComment = (parseComment(commentJsonRecursive));
+            taskComments.add(parsedComment);
+        }
+        return new Task(id, title, description, type, assignedUsers, completion, priority, taskComments, new ArrayList<Change>());
+    }
 }
