@@ -59,7 +59,7 @@ public class RegisterController implements Initializable {
         String password = passwordField.getText();
         
 
-        if (facade.register(email, username, password)) {
+        if (facade.register(username, email, password)) {
             try {
                 App.setRoot("Dashboard");
             } catch (IOException e) {
